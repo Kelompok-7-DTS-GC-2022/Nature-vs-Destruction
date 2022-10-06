@@ -19,19 +19,17 @@ public class HealthManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-
-    }
+    public float getPlantHP() => _currentHealthPlant;
+    public float getGrowArea() => _playerSO.growPlant;
     public void TakeDamage(int amount)
     {
         _currentHealthPlant -= amount;
-        if(_currentHealthPlant <= 0)
+        if (_currentHealthPlant <= 0)
         {
-            _anim.SetTrigger("IsDead");
+            // _anim.SetTrigger("IsDead");
             // do dead animation and destroy
             Debug.Log("Die");
+            Destroy(this.gameObject);
         }
     }
 }

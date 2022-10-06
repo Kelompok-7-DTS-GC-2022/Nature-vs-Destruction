@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Scripting;
 
 public class PlantManager : MonoBehaviour
 {
@@ -17,11 +18,14 @@ public class PlantManager : MonoBehaviour
     public int cost;
     public Texture iconPlant;
 
-    
+    [SerializeField]
+    public List<GameObject> plants;
+
+    public List<GameObject> getPlantList() => plants;
 
     private void Start()
     {
-        
+
         amountHolder = plantSO.Length;
         holderPlants = new GameObject[amountHolder];
         for (int i = 0; i < amountHolder; i++)
@@ -45,4 +49,5 @@ public class PlantManager : MonoBehaviour
         holder.GetComponentInChildren<RawImage>().texture = iconPlant;
         holder.GetComponentInChildren<TMP_Text>().text = "" + cost;
     }
+
 }

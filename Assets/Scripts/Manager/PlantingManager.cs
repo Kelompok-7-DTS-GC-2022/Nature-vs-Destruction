@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,7 +34,7 @@ public class PlantingManager : MonoBehaviour
     }
     void Update()
     {
-        if(PendingPlant != null)
+        if (PendingPlant != null)
         {
             if (isGrid)
             {
@@ -56,10 +58,11 @@ public class PlantingManager : MonoBehaviour
             PlantCooldown();
         }
     }
+
     public void PlantCooldown()
     {
         cooldownTimer -= Time.deltaTime;
-        if(cooldownTimer < 0.0f)
+        if (cooldownTimer < 0.0f)
         {
             isCooldown = false;
             cooldownImage.fillAmount = 0.0f;
@@ -69,23 +72,24 @@ public class PlantingManager : MonoBehaviour
             cooldownImage.fillAmount = cooldownTimer / CooldownTime;
         }
     }
-    
+
     void UpdateMaterials()
     {
         //Todo : ChangeMaterial
     }
-    
+
     public void PlacePlant()
     {
-       
-        PendingPlant = null;
-        PlantList.Add(PendingPlant);
+        // PlantList.Add(PendingPlant);
+        GameManager.Instance.gameObject.GetComponent<PlantManager>().plants.Add(PendingPlant);
         GameManager.Instance.AddPlantGrow(TotalPlantGrow);
+        GameEventManager.Instance.eventInvoker(GameManager.Instance.gameObject.GetComponent<PlantManager>().plants);
+        PendingPlant = null;
     }
     private void FixedUpdate()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray, out hit, 1000, layerMask))
+        if (Physics.Raycast(ray, out hit, 1000, layerMask))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.red);
             pos = hit.point;

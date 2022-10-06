@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour
 {
-    public int DamageTester = 10;
+    public int DamageTester = 5;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Plant"))
         {
-            other.gameObject.GetComponent<HealthManager>().TakeDamage(10);
+            other.gameObject.GetComponent<HealthManager>().TakeDamage(DamageTester);
         }
     }
 }

@@ -32,7 +32,7 @@ public class TimerManager : MonoBehaviour
         {
             if (GameManager.Instance.PlantAreaGrow > GameManager.Instance.EnemyArea || GameManager.Instance.PlantAreaGrow == 100)
             {
-                Debug.Log("WIN");
+                // Debug.Log("WIN");
                 //Todo : Game State Win & Pop Up
             }
             else
