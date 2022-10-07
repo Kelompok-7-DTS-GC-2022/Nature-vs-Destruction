@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c9108b368f3b4f47b9d5a8d264073ff, type: 3}
-  m_Name: BulldozerEnemyData
+  m_Name: ExcavatorEnemyData
   m_EditorClassIdentifier: 
-  healthPoint: 100
-  damagePoint: 15
-  damagePerSecond: 4
-  movementSpeed: 2
-  thresholdSpawnMin: 15
-  thresholdSpawnMax: 17
-  enemyPrefab: {fileID: 5332771825827861737, guid: 88aee2ba905d4054f86311423f41cb48, type: 3}
+  healthPoint: 50
+  damagePoint: 25
+  damagePerSecond: 3
+  movementSpeed: 3
+  thresholdSpawnMin: 10
+  thresholdSpawnMax: 12
+  enemyPrefab: {fileID: 5332771825827861737, guid: 80f551277e6d7ea488974981559faf41, type: 3}

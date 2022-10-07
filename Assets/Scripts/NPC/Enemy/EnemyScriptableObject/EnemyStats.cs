@@ -13,4 +13,5 @@ public class EnemyStats : ScriptableObject
     public float movementSpeed;
     public float thresholdSpawnMin;
     public float thresholdSpawnMax;
+    public GameObject enemyPrefab;
 }

@@ -9,35 +9,44 @@ using UnityEngine.PlayerLoop;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField]
-    private EnemyStats enemyStats;
-    private EnemyStats enemyStatsData;
-    [SerializeField]
     private Animator enemyAnimator;
     [SerializeField]
-    GameObject closestPlant;
-    EnemyMovement movementController;
-    List<GameObject> plantDataContainer;
+    private GameObject closestPlant;
+    private float healthPoint;
+    private float damagePerSecond;
+    private float movementSpeed;
+    private EnemyMovement movementController;
+    private List<GameObject> plantDataContainer;
 
+    private void Awake()
+    {
+        movementController = GetComponent<EnemyMovement>();
+    }
 
     private void Start()
     {
-        enemyStatsData = enemyStats;//binding data from scriptable object
-        movementController = GetComponent<EnemyMovement>();
-        // plantDataContainer = GameManager.Instance.gameObject.GetComponent<PlantManager>().getPlantList();
         GameEventManager.Instance.onPlantListUpdate += onPlantListUpdate;
+        plantDataContainer = GameManager.Instance.gameObject.GetComponent<PlantManager>().getPlantList();
     }
-    private void OnDisable() => GameEventManager.Instance.onPlantListUpdate -= onPlantListUpdate;
 
     private void LateUpdate()
     {
         enemyStateRules();
     }
-    void onPlantListUpdate(List<GameObject> plants)
+    //binding data from scriptable object
+    public void enemyDataBiniding(EnemyStats enemyStats)
+    {
+        healthPoint = enemyStats.healthPoint;
+        damagePerSecond = enemyStats.damagePerSecond;
+        movementSpeed = enemyStats.movementSpeed;
+
+    }
+    private void onPlantListUpdate(List<GameObject> plants)
     {
         plantDataContainer = plants;
         calculateClosestTarget();
     }
-    void calculateClosestTarget()
+    private void calculateClosestTarget()
     {
         if (plantDataContainer == null || plantDataContainer.Count < 1) return;
         var distance = float.MaxValue;
@@ -51,15 +60,16 @@ public class EnemyController : MonoBehaviour
             }
         });
     }
-
-    void enemyStateRules()//bruteforce enemy rules
+    //bruteforce enemy rules
+    private void enemyStateRules()
     {
-        if (enemyStatsData.healthPoint > 0)
+        // print(healthPoint);
+        if (healthPoint > 0)
         {
             if (closestPlant != null)
             {
                 var plantHealth = closestPlant.GetComponent<HealthManager>();
-                // just wanted to get the value of plant grow area, but yeah it is....
+
                 var growPlantArea = closestPlant.GetComponent<HealthManager>().getGrowArea();
 
                 //Attack on target range
@@ -85,7 +95,6 @@ public class EnemyController : MonoBehaviour
                 //set new target
                 calculateClosestTarget();
                 enemyAnimator.Play("Idle");
-
             }
         }
         else
@@ -95,20 +104,23 @@ public class EnemyController : MonoBehaviour
             enemyAnimator.Play("Dead");
         }
     }
-
-
-    void enemyAttack()
+    //set animation and movement controll for attack state
+    private void enemyAttack()
     {
-        print("Attacking");
         movementController.onAttack();
         enemyAnimator.Play("Attack");
     }
-    void enemyMove()
+    //set animation and movement controll for movement state
+    private void enemyMove()
     {
-        print("Moving");
         movementController.setTargetDestination(closestPlant.transform.position);
         enemyAnimator.Play("Movement");
     }
-    float distanceCounter(Vector3 pointOne, Vector3 pointTwo) => Vector3.Distance(pointOne, pointTwo);
+    //use this to damage this enemy
+    public void takeTheDamage(float damage) => healthPoint -= damage;
+    // count distance between this enemy and some plant
+    private float distanceCounter(Vector3 pointOne, Vector3 pointTwo) => Vector3.Distance(pointOne, pointTwo);
+    //unsubscribing game event on disable or before destroyed
+    private void OnDisable() => GameEventManager.Instance.onPlantListUpdate -= onPlantListUpdate;
 }
 
