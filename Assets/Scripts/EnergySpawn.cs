@@ -18,6 +18,6 @@ public class EnergySpawn : MonoBehaviour
     }
     void SpawnEnergy()
     {
-        Instantiate(_energyPrefab, new Vector3(Random.Range(transform.position.x - 70, transform.position.x + 70), transform.position.y - 10, transform.position.z), Quaternion.identity, transform.parent.IsChildOf(gameObject.transform) ? transform.parent : transform);
+        Instantiate(_energyPrefab, new Vector3(Random.Range(transform.position.x - 70, transform.position.x + 70), transform.position.y - 10, transform.position.z), Quaternion.identity, transform);
     }
 }
