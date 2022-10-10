@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class MainMenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void QuitGame()
     {
-        
+        Application.Quit();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void ToggleSFX(bool isOn)
     {
-        
+        PlayerPrefs.SetInt("SFX", isOn ? 1 : 0);
+    }
+    public void ToggleBGM(bool isOn)
+    {
+        PlayerPrefs.SetInt("BGM", isOn ? 1 : 0);
     }
 }
