@@ -17,7 +17,7 @@ public class EnemyManager : MonoBehaviour
 
     private void Start()
     {
-        print("ground center" + groundCollider.bounds.center);
+        // print("ground center" + groundCollider.bounds.center);
         enemyPreFabConf.ForEach(enemyData =>
            {
                //spawn enemy based on thier on spawn time threshold
@@ -36,7 +36,6 @@ public class EnemyManager : MonoBehaviour
         while (true)
         {
             var second = Random.Range(minThreshold, maxThreshold);
-            print(second);
             yield return new WaitForSeconds(second);
             var enemyObj = Instantiate(enemy.enemyPrefab, transform);
             enemyObj.GetComponent<EnemyController>().enemyDataBiniding(enemy);

@@ -18,4 +18,4 @@ MonoBehaviour:
   movementSpeed: 3
   thresholdSpawnMin: 10
   thresholdSpawnMax: 12
-  enemyPrefab: {fileID: 5332771825827861737, guid: 80f551277e6d7ea488974981559faf41, type: 3}
+  enemyPrefab: {fileID: 2229171509676513558, guid: f619101e496319c4da12042707da20af, type: 3}

@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     private Animator enemyAnimator;
     [SerializeField]
     private GameObject closestPlant;
+    [SerializeField]
     private float healthPoint;
     private float damagePerSecond;
     private float movementSpeed;
@@ -76,7 +77,6 @@ public class EnemyController : MonoBehaviour
                 if (distanceCounter(closestPlant.transform.position, this.transform.position) < growPlantArea)
                 {
                     enemyAttack();
-                    print(closestPlant);
                     if (plantHealth.getPlantHP() <= 0 || closestPlant.gameObject == null)
                     {
                         //set new target and move

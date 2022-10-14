@@ -131,7 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9e3fb430edeb048b55ca1e117b86d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStats: {fileID: 11400000, guid: c635779aa06f7b74c9d6c4d45a39a567, type: 2}
   enemyAnimator: {fileID: 5332771825827861713}
   closestPlant: {fileID: 0}
 --- !u!195 &5332771825827861740
