@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,9 +10,13 @@ using UnityEngine.Windows.Speech;
 
 public class CameraController : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject terrainMap;
 
     //movement
     float cameraSpeed;
+    [SerializeField]
+    private float cameraClampRadius = 20;
     [SerializeField]
     private float cameraMovementMaxSpeed = 5;
     [SerializeField]
@@ -29,8 +34,6 @@ public class CameraController : MonoBehaviour
     private float cameraMaxHeight = 100;
     [SerializeField]
     private float cameraMinHeight = 10;
-    [SerializeField]
-    private Vector3 cameraZoomSpeed;
     [SerializeField]
     private Vector3 targetPosition;
     [SerializeField]
@@ -116,14 +119,16 @@ public class CameraController : MonoBehaviour
     {
         if (targetPosition.sqrMagnitude > 0.5f)
         {
-
             cameraSpeed = Mathf.Lerp(cameraSpeed, cameraMovementMaxSpeed, Time.deltaTime * cameraAceleration);
             this.transform.position += targetPosition * cameraSpeed * Time.deltaTime;
+            this.transform.position = Vector3.ClampMagnitude(this.transform.position, cameraClampRadius);
+            // this.transform.position = clampCamera(this.transform.position);
         }
         else
         {
             horizontalVelocity = Vector3.Lerp(horizontalVelocity, Vector3.zero, Time.deltaTime * cameraDamp);
             this.transform.position += horizontalVelocity * Time.deltaTime;
+            // this.transform.position = clampCamera(this.transform.position);
         }
         targetPosition = Vector3.zero;
     }
@@ -146,7 +151,7 @@ public class CameraController : MonoBehaviour
     {
         var scrolInput = -inputValue.ReadValue<Vector2>();
         Vector2.ClampMagnitude(scrolInput, cameraMaxHeight);
-        scrolInput /= 5;
+        // scrolInput /= 3;
         scrolInput.y = Mathf.Clamp(scrolInput.y, cameraMinHeight, cameraMaxHeight);
         zoomPosition.y = scrolInput.y;
         zoomPosition.z = -scrolInput.y;
@@ -156,4 +161,31 @@ public class CameraController : MonoBehaviour
 
     #endregion
 
+    //unused
+    #region CameraMovementClamp
+    //clamp camera position in rectangle
+    private Vector3 clampCamera(Vector3 cameraPosition)
+    {
+        var mapCameraLength = cameraPosition.x * 2;
+        var mapCameraWidth = cameraPosition.z * 2;
+        var terrainBound = terrainMap.GetComponent<Renderer>().bounds;
+        var terrainXLengthRadius = terrainBound.size.x / 2;
+        var terrainZLengthRadius = terrainBound.size.z / 2;
+        var maxTerrainXPosition = terrainMap.transform.position.x + terrainXLengthRadius;
+        var maxTerrainZPosition = terrainMap.transform.position.z + terrainZLengthRadius;
+        var minTerrainXPosition = terrainMap.transform.position.x - terrainXLengthRadius;
+        var minTerrainZPosition = terrainMap.transform.position.z - terrainZLengthRadius;
+
+        var minXPosition = minTerrainXPosition + mapCameraLength;
+        var maxXPosition = maxTerrainXPosition - mapCameraLength;
+        var minZPosition = minTerrainZPosition + mapCameraWidth;
+        var maxZPosition = maxTerrainZPosition - mapCameraWidth;
+
+        var clampXPosition = Mathf.Clamp(cameraPosition.x, minXPosition, maxXPosition);
+        var clampZPosition = Mathf.Clamp(cameraPosition.z, minZPosition, maxZPosition);
+
+        return new Vector3(clampXPosition, cameraPosition.y, clampZPosition);
+
+    }
+    #endregion
 }

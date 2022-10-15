@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
 {
     NavMeshAgent navMesh;
 
-    private void Start()
+    private void Awake()
     {
         navMesh = GetComponent<NavMeshAgent>();
     }
@@ -20,18 +20,13 @@ public class EnemyMovement : MonoBehaviour
     }
     public void setTargetDestination(Vector3 destination)
     {
+        navMesh.enabled = true;
         navMesh.isStopped = false;
         navMesh.SetDestination(destination);
     }
 
-    public void onAttack()
+    public void navmeshStop()
     {
-        navMesh.isStopped = true;
-    }
-
-    public void onDying()
-    {
-        navMesh.isStopped = true;
         navMesh.enabled = false;
     }
 }

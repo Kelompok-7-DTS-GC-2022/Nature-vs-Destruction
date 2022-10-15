@@ -15,7 +15,7 @@ MonoBehaviour:
   iconPlant: {fileID: 2800000, guid: 83287d6f209c57c4bb8fdba26a73b0bb, type: 3}
   spritePlant: {fileID: 0}
   costPlant: 125
-  prefabPlant: {fileID: 1672785111318471717, guid: acfccf49b2e02704a99fd0a7e98a9a99, type: 3}
+  prefabPlant: {fileID: 1219677051483252848, guid: 1895a62e699a5c04c8bb4ecf14cbb288, type: 3}
   MaxHPPlant: 20
   growPlant: 9
   cooldownPlant: 2

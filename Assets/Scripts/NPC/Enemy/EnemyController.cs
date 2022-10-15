@@ -8,6 +8,7 @@ using UnityEngine.PlayerLoop;
 
 public class EnemyController : MonoBehaviour
 {
+    public GameObject attackArea;
     [SerializeField]
     private Animator enemyAnimator;
     [SerializeField]
@@ -40,7 +41,7 @@ public class EnemyController : MonoBehaviour
         healthPoint = enemyStats.healthPoint;
         damagePerSecond = enemyStats.damagePerSecond;
         movementSpeed = enemyStats.movementSpeed;
-
+        movementController.enemyMovementStatsDataBinding(movementSpeed);
     }
     private void onPlantListUpdate(List<GameObject> plants)
     {
@@ -49,7 +50,11 @@ public class EnemyController : MonoBehaviour
     }
     private void calculateClosestTarget()
     {
-        if (plantDataContainer == null || plantDataContainer.Count < 1) return;
+        if (plantDataContainer == null || plantDataContainer.Count < 1)
+        {
+            enemyIdle();
+            return;
+        }
         var distance = float.MaxValue;
         plantDataContainer.RemoveAll(data => data == null);
         plantDataContainer?.ForEach(plant =>
@@ -74,7 +79,7 @@ public class EnemyController : MonoBehaviour
                 var growPlantArea = closestPlant.GetComponent<HealthManager>().getGrowArea();
 
                 //Attack on target range
-                if (distanceCounter(closestPlant.transform.position, this.transform.position) < growPlantArea)
+                if (distanceCounter(closestPlant.transform.position, this.transform.position) < growPlantArea * 0.5f)
                 {
                     enemyAttack();
                     if (plantHealth.getPlantHP() <= 0 || closestPlant.gameObject == null)
@@ -94,22 +99,33 @@ public class EnemyController : MonoBehaviour
             {
                 //set new target
                 calculateClosestTarget();
-                enemyAnimator.Play("Idle");
+                enemyIdle();
             }
         }
         else
         {
             //do dead
-            movementController.onDying();
+            movementController.navmeshStop();
             enemyAnimator.Play("Dead");
         }
+    }
+
+    private void enemyIdle()
+    {
+        enemyAnimator.Play("Idle");
+        movementController.navmeshStop();
     }
     //set animation and movement controll for attack state
     private void enemyAttack()
     {
-        movementController.onAttack();
+        transform.LookAt(closestPlant.transform);
+        movementController.navmeshStop();
         enemyAnimator.Play("Attack");
+        enemyAnimator.speed *= (damagePerSecond / 10);
     }
+    //activate animation event attack area game object
+    void activateAttackArea() => attackArea.SetActive(true);
+    void deactivateAttackArea() => attackArea.SetActive(false);
     //set animation and movement controll for movement state
     private void enemyMove()
     {
