@@ -17,5 +17,5 @@ MonoBehaviour:
   costPlant: 125
   prefabPlant: {fileID: 1219677051483252848, guid: 1895a62e699a5c04c8bb4ecf14cbb288, type: 3}
   MaxHPPlant: 20
-  growPlant: 9
+  growPlant: 3
   cooldownPlant: 2

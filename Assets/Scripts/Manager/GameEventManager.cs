@@ -27,7 +27,7 @@ public class GameEventManager
     public event Action<List<GameObject>> onPlantListUpdate;
     // public event Action<int, GameObject> onPlantListUpdate;
 
-    public void eventInvoker(List<GameObject> plants)
+    public void plantUpdateEventInvoker(List<GameObject> plants)
     {
         onPlantListUpdate?.Invoke(plants);
     }

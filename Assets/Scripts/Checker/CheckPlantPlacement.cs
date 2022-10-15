@@ -4,25 +4,30 @@ using UnityEngine;
 
 public class CheckPlantPlacement : MonoBehaviour
 {
-    public static CheckPlantPlacement intance;
     public bool canPlant;
-    void Start()
-    {
-        intance = this;
-        
-    }
+
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("PlantGround"))
+        if (other.CompareTag("Plant"))
         {
             canPlant = false;
         }
-    }
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("PlantGround"))
+        else
         {
             canPlant = true;
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Plant"))
+        {
+            canPlant = true;
+        }
+        else
+        {
+            canPlant = false;
+        }
+
     }
 }

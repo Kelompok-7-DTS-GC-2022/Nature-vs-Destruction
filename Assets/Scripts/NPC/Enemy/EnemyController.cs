@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         GameEventManager.Instance.onPlantListUpdate += onPlantListUpdate;
-        plantDataContainer = GameManager.Instance.gameObject.GetComponent<PlantManager>().getPlantList();
+        plantDataContainer = PlantManager.Instance.getPlantList();
     }
 
     private void LateUpdate()
@@ -74,12 +74,12 @@ public class EnemyController : MonoBehaviour
         {
             if (closestPlant != null)
             {
-                var plantHealth = closestPlant.GetComponent<HealthManager>();
+                var plantHealth = closestPlant.GetComponent<PlantController>();
 
-                var growPlantArea = closestPlant.GetComponent<HealthManager>().getGrowArea();
+                var growPlantArea = closestPlant.GetComponent<PlantController>().getGrowArea();
 
                 //Attack on target range
-                if (distanceCounter(closestPlant.transform.position, this.transform.position) < growPlantArea * 0.5f)
+                if (distanceCounter(closestPlant.transform.position, this.transform.position) < growPlantArea)
                 {
                     enemyAttack();
                     if (plantHealth.getPlantHP() <= 0 || closestPlant.gameObject == null)
@@ -121,7 +121,7 @@ public class EnemyController : MonoBehaviour
         transform.LookAt(closestPlant.transform);
         movementController.navmeshStop();
         enemyAnimator.Play("Attack");
-        enemyAnimator.speed *= (damagePerSecond / 10);
+        // enemyAnimator.speed /= 10;
     }
     //activate animation event attack area game object
     void activateAttackArea() => attackArea.SetActive(true);

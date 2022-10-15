@@ -1,11 +1,20 @@
 fileFormatVersion: 2
-guid: f024dd5be49748342a7596e53093d4d3
+guid: fa8e2342d2575b246abfc1f6478a7d17
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: -623603649343465320
-    second: Scene
+      74: -8249804643051661495
+    second: 001. Default
+  - first:
+      74: -7040593100010737356
+    second: 002. Grow
+  - first:
+      74: 4337605518161828041
+    second: 003. Attack
+  - first:
+      74: 7374755196490580336
+    second: 004. Death
   externalObjects: {}
   materials:
     materialImportMode: 2

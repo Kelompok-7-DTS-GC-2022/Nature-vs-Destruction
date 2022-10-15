@@ -9,7 +9,7 @@ public class Damage : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Plant"))
         {
-            other.gameObject.GetComponent<HealthManager>().TakeDamage(DamageTester);
+            other.gameObject.GetComponent<PlantController>().TakeDamage(DamageTester);
         }
     }
 }

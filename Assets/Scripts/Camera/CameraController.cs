@@ -137,7 +137,7 @@ public class CameraController : MonoBehaviour
     #region CamerRotation
     private void cameraRotation(InputAction.CallbackContext inputAction)
     {
-        if (!(Mouse.current.leftButton.isPressed && Mouse.current.rightButton.isPressed)) return;
+        if (!(Mouse.current.rightButton.isPressed)) return;
         var inputValue = inputAction.ReadValue<Vector2>().x;
 
         newRotation *= Quaternion.Euler(Vector3.up * inputValue * cameraRotationSpeed);

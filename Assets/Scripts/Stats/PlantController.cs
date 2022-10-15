@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthManager : MonoBehaviour
+public class PlantController : MonoBehaviour
 {
-    public static HealthManager instance;
+    public static PlantController instance;
     [SerializeField] private float _maxHealthPlant;
     [SerializeField] private PlayerScriptableObject _playerSO;
     public Animator _anim;
     public bool IsDamaged;
+    [SerializeField]
     private float _currentHealthPlant;
     void Start()
     {

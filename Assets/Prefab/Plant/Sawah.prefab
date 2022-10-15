@@ -1,63 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2466802239048381007
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2466802239048381006}
-  - component: {fileID: 2466802239048381004}
-  - component: {fileID: 2466802239048381005}
-  m_Layer: 0
-  m_Name: Checker
-  m_TagString: PlantGround
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2466802239048381006
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2466802239048381007}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2716074011160268304}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2466802239048381004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2466802239048381007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60b5b460b706a534587edcac2d00448e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canPlant: 1
---- !u!65 &2466802239048381005
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2466802239048381007}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0096164, y: 1, z: 3}
-  m_Center: {x: -0.00930047, y: 0, z: 0}
 --- !u!1 &2483313831054893608
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,6 +42,8 @@ GameObject:
   - component: {fileID: 2716074011160268304}
   - component: {fileID: 2466802239832697343}
   - component: {fileID: 2466802239832697336}
+  - component: {fileID: 2315651977514633396}
+  - component: {fileID: 3850907281125220761}
   m_Layer: 0
   m_Name: Sawah
   m_TagString: Plant
@@ -122,7 +66,6 @@ Transform:
   - {fileID: 8810995507017040586}
   - {fileID: 6048400576569462973}
   - {fileID: 1563780425205608957}
-  - {fileID: 2466802239048381006}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -142,6 +85,7 @@ MonoBehaviour:
   _playerSO: {fileID: 11400000, guid: c029b494fac4bbb47b2cbefde8a5ee72, type: 2}
   _anim: {fileID: 0}
   IsDamaged: 0
+  _currentHealthPlant: 0
 --- !u!65 &2466802239832697336
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -150,11 +94,43 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3385227254699168938}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 3}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 0.8969493, y: 1, z: 2.9312992}
+  m_Center: {x: -0.0057251453, y: 0.5, z: 0.011449814}
+--- !u!95 &2315651977514633396
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3385227254699168938}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 8bc003fb341b985429d137da3b51e3d1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3850907281125220761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3385227254699168938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b5b460b706a534587edcac2d00448e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canPlant: 1
 --- !u!1 &3530262827359026801
 GameObject:
   m_ObjectHideFlags: 0

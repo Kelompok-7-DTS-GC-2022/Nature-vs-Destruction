@@ -5,7 +5,7 @@ using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlantingManager : MonoBehaviour
+public class PlantingController : MonoBehaviour
 {
     [Header("Cooldown Controller")]
     private bool isCooldown = false;
@@ -20,34 +20,37 @@ public class PlantingManager : MonoBehaviour
     private Vector3 pos;
     private RaycastHit hit;
     [SerializeField] public LayerMask layerMask;
-    public List<GameObject> PlantList;
-    public float TotalPlantGrow;
+
+    public float growSize;
 
     [Header("Grid Option")]
     public float GridSize;
     bool isGrid = true;
+    private CheckPlantPlacement checker;
 
     private void Start()
     {
+
         cooldownImage.fillAmount = 0.0f;
-        PlantList = new List<GameObject>();
     }
     void Update()
     {
+
         if (PendingPlant != null)
         {
-            if (isGrid)
-            {
-                PendingPlant.transform.position = new Vector3(RoundToNearestGrid(pos.x),
-                RoundToNearestGrid(pos.y),
-                RoundToNearestGrid(pos.z));
-            }
-            else
-            {
-                PendingPlant.transform.position = pos;
-            }
+            checker = PendingPlant.GetComponent<CheckPlantPlacement>();
+            // if (isGrid)
+            // {
+            //     PendingPlant.transform.position = new Vector3(RoundToNearestGrid(pos.x),
+            //     RoundToNearestGrid(pos.y),
+            //     RoundToNearestGrid(pos.z));
+            // }
+            // else
+            // {
+            PendingPlant.transform.position = pos;
+            // }
             //UpdateMaterials();
-            if (Input.GetMouseButtonDown(0) && CheckPlantPlacement.intance.canPlant)
+            if (Input.GetMouseButtonDown(0) && checker.canPlant)
             {
                 PlacePlant();
                 //HealthManager.instance._anim.SetTrigger("IsGrow");
@@ -57,6 +60,12 @@ public class PlantingManager : MonoBehaviour
         {
             PlantCooldown();
         }
+    }
+
+    private void plantDataBinding()
+    {
+        growSize = PlantSo.growPlant;
+
     }
 
     public void PlantCooldown()
@@ -80,10 +89,10 @@ public class PlantingManager : MonoBehaviour
 
     public void PlacePlant()
     {
-        // PlantList.Add(PendingPlant);
-        GameManager.Instance.gameObject.GetComponent<PlantManager>().plants.Add(PendingPlant);
-        GameManager.Instance.AddPlantGrow(TotalPlantGrow);
-        GameEventManager.Instance.eventInvoker(GameManager.Instance.gameObject.GetComponent<PlantManager>().plants);
+        PlantManager.Instance.plants.Add(PendingPlant);
+        PendingPlant.transform.parent = PlantManager.Instance.gameObject.transform;
+        GameManager.Instance.AddPlantGrow(growSize);
+        GameEventManager.Instance.plantUpdateEventInvoker(PlantManager.Instance.plants);
         PendingPlant = null;
     }
     private void FixedUpdate()

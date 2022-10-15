@@ -714,6 +714,8 @@ GameObject:
   - component: {fileID: 5577710647349514941}
   - component: {fileID: 5396081141420914011}
   - component: {fileID: 5396081141420914010}
+  - component: {fileID: 7101660861333029504}
+  - component: {fileID: 3672987543082695946}
   m_Layer: 0
   m_Name: Pohon_Ulin
   m_TagString: Plant
@@ -743,7 +745,6 @@ Transform:
   - {fileID: 5966498009707103725}
   - {fileID: 5970377560571186154}
   - {fileID: 5396081141388538583}
-  - {fileID: 5396081140420542572}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -763,6 +764,7 @@ MonoBehaviour:
   _playerSO: {fileID: 11400000, guid: 1d77daace5e5eb04db40a07ae321cbdc, type: 2}
   _anim: {fileID: 0}
   IsDamaged: 0
+  _currentHealthPlant: 0
 --- !u!65 &5396081141420914010
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -771,69 +773,43 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5054115086648395783}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 4, z: 2}
-  m_Center: {x: 0, y: 2, z: 0}
---- !u!1 &5396081140420542573
-GameObject:
+  m_Size: {x: 1.8580818, y: 4, z: 1.9517021}
+  m_Center: {x: -0.06262183, y: 2, z: -0.024148941}
+--- !u!95 &7101660861333029504
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5396081140420542572}
-  - component: {fileID: 5396081140420542578}
-  - component: {fileID: 5396081140420542579}
-  m_Layer: 0
-  m_Name: Checker
-  m_TagString: PlantGround
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5396081140420542572
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5396081140420542573}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5577710647349514941}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5396081140420542578
+  m_GameObject: {fileID: 5054115086648395783}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 4279f047eba29ea41b85edd92508f6b0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3672987543082695946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5396081140420542573}
+  m_GameObject: {fileID: 5054115086648395783}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60b5b460b706a534587edcac2d00448e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canPlant: 1
---- !u!65 &5396081140420542579
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5396081140420542573}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 1, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5396081141388538576
 GameObject:
   m_ObjectHideFlags: 0
