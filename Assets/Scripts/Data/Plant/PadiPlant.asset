@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caadbc76947c3b54fb8584f181eaa162, type: 3}
+  m_Name: PadiPlant
+  m_EditorClassIdentifier: 
+  iconPlant: {fileID: 2800000, guid: 494aef898937ca543b82cbe23e54cd6c, type: 3}
+  spritePlant: {fileID: 0}
+  costPlant: 50
+  prefabPlant: {fileID: 3385227254699168938, guid: 0991763bb7093424bb109a30c7d116c8, type: 3}
+  MaxHPPlant: 40
+  growPlant: 3
+  cooldownPlant: 8

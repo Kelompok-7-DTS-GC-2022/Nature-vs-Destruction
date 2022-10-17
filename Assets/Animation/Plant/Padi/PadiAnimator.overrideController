@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PadiAnimator
+  m_Controller: {fileID: 9100000, guid: 83457b0683fa88443b33ff34fd9b91a6, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 810e554ab2479a040af092a35946c84e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f73e5f6d86b0bbf49829f4a68ddf32cd, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f56dfdaf0687f2449ad0a23dabcf45f7, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ac8240ad2b88b00439f263273cd69209, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 882fc359a202b714192504671d45dfc4, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5b5577f99123d9340aef3a0d2c013af0, type: 2}

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ExcavatorAnimator
+  m_Controller: {fileID: 9100000, guid: 1581d6abde1654d44aac148695589fdb, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: c0f165c0f6fa416408022c3ac2434558, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c0f165c0f6fa416408022c3ac2434558, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a5d791dc91dd06447878776eaac4444a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a316d000e5b75a2478da419c844adea5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 25cef355372ea37428ced8c2db5c566c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 25cef355372ea37428ced8c2db5c566c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 9b582b57dcb9b004bb5f76bf92d28fc6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 28d12a55853614b4cb0a38bd65a7c77c, type: 2}

@@ -3,17 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Plant
+  - Holder
+  - Manager
+  - PlantGround
+  - PlantPointer
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
+  - GrowArea
+  - Enemy
+  - Plant
   - 
   - 
   - 
