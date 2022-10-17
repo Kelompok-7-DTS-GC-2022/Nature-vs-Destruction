@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9e3fb430edeb048b55ca1e117b86d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackArea: {fileID: 0}
+  attackArea: {fileID: 3441011167702992509}
   enemyAnimator: {fileID: 1059405851}
   closestPlant: {fileID: 0}
   healthPoint: 0
