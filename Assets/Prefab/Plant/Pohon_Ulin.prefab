@@ -755,16 +755,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5054115086648395783}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68794414c2019aa4087f4c00530515b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 20
+  animator: {fileID: 7101660861333029504}
+  attackArea: {fileID: 0}
   _maxHealthPlant: 0
-  _playerSO: {fileID: 11400000, guid: 1d77daace5e5eb04db40a07ae321cbdc, type: 2}
-  _anim: {fileID: 0}
-  IsDamaged: 0
+  plantSO: {fileID: 11400000, guid: 1d77daace5e5eb04db40a07ae321cbdc, type: 2}
   _currentHealthPlant: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!65 &5396081141420914010
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -776,7 +780,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.8580818, y: 4, z: 1.9517021}
+  m_Size: {x: 2, y: 4, z: 2}
   m_Center: {x: -0.06262183, y: 2, z: -0.024148941}
 --- !u!95 &7101660861333029504
 Animator:
@@ -809,7 +813,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b5b460b706a534587edcac2d00448e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planted: 0
   canPlant: 1
+  hasNeighbour: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 256
+  plantTanah: {fileID: 5396081141388538576}
 --- !u!1 &5396081141388538576
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,7 +847,7 @@ Transform:
   m_GameObject: {fileID: 5396081141388538576}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.67, y: 1, z: 0.67}
+  m_LocalScale: {x: 1.02, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5577710647349514941}
   m_RootOrder: 10

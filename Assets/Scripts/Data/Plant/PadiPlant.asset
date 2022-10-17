@@ -16,6 +16,6 @@ MonoBehaviour:
   spritePlant: {fileID: 0}
   costPlant: 50
   prefabPlant: {fileID: 3385227254699168938, guid: 0991763bb7093424bb109a30c7d116c8, type: 3}
-  MaxHPPlant: 100
-  growPlant: 0.5
+  MaxHPPlant: 40
+  growPlant: 3
   cooldownPlant: 8

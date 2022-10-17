@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -30,30 +31,19 @@ public class PlantingController : MonoBehaviour
 
     private void Start()
     {
-
         cooldownImage.fillAmount = 0.0f;
     }
     void Update()
     {
-
         if (PendingPlant != null)
         {
-            checker = PendingPlant.GetComponent<CheckPlantPlacement>();
-            // if (isGrid)
-            // {
-            //     PendingPlant.transform.position = new Vector3(RoundToNearestGrid(pos.x),
-            //     RoundToNearestGrid(pos.y),
-            //     RoundToNearestGrid(pos.z));
-            // }
-            // else
-            // {
-            PendingPlant.transform.position = pos;
-            // }
+            var intX = Mathf.RoundToInt(pos.x);
+            var intZ = Mathf.RoundToInt(pos.z);
+            PendingPlant.transform.position = new Vector3(intX, pos.y, intZ);
             //UpdateMaterials();
             if (Input.GetMouseButtonDown(0) && checker.canPlant)
             {
                 PlacePlant();
-                //HealthManager.instance._anim.SetTrigger("IsGrow");
             }
         }
         if (isCooldown)
@@ -61,13 +51,6 @@ public class PlantingController : MonoBehaviour
             PlantCooldown();
         }
     }
-
-    private void plantDataBinding()
-    {
-        growSize = PlantSo.growPlant;
-
-    }
-
     public void PlantCooldown()
     {
         cooldownTimer -= Time.deltaTime;
@@ -89,8 +72,13 @@ public class PlantingController : MonoBehaviour
 
     public void PlacePlant()
     {
-        PlantManager.Instance.plants.Add(PendingPlant);
+        checker.planted = true;
         PendingPlant.transform.parent = PlantManager.Instance.gameObject.transform;
+        PendingPlant.gameObject.layer = LayerMask.NameToLayer("Plant");
+        PendingPlant.GetComponent<PlantController>().enabled = true;
+        PendingPlant.GetComponent<PlantController>().isPlanted = true;
+        PendingPlant.GetComponent<Collider>().isTrigger = false;
+        PlantManager.Instance.plants.Add(PendingPlant);
         GameManager.Instance.AddPlantGrow(growSize);
         GameEventManager.Instance.plantUpdateEventInvoker(PlantManager.Instance.plants);
         PendingPlant = null;
@@ -100,10 +88,8 @@ public class PlantingController : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, 1000, layerMask))
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down) * hit.distance, Color.red);
             pos = hit.point;
         }
-
     }
     public void SelectPlant()
     {
@@ -114,18 +100,9 @@ public class PlantingController : MonoBehaviour
         else
         {
             PendingPlant = Instantiate(PlantPrefab, pos, transform.rotation);
+            checker = PendingPlant.GetComponent<CheckPlantPlacement>();
             isCooldown = true;
             cooldownTimer = CooldownTime;
         }
-    }
-    float RoundToNearestGrid(float pos)
-    {
-        float xDiff = pos % GridSize;
-        pos -= xDiff;
-        if (xDiff > (GridSize / 2))
-        {
-            pos += GridSize;
-        }
-        return pos;
     }
 }

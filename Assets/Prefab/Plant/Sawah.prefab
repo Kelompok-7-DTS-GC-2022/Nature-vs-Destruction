@@ -76,16 +76,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3385227254699168938}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68794414c2019aa4087f4c00530515b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 20
+  animator: {fileID: 2315651977514633396}
+  attackArea: {fileID: 0}
   _maxHealthPlant: 0
-  _playerSO: {fileID: 11400000, guid: c029b494fac4bbb47b2cbefde8a5ee72, type: 2}
-  _anim: {fileID: 0}
-  IsDamaged: 0
+  plantSO: {fileID: 11400000, guid: c029b494fac4bbb47b2cbefde8a5ee72, type: 2}
   _currentHealthPlant: 0
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!65 &2466802239832697336
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -130,7 +134,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b5b460b706a534587edcac2d00448e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  planted: 0
   canPlant: 1
+  hasNeighbour: 0
+  layer:
+    serializedVersion: 2
+    m_Bits: 256
+  plantTanah: {fileID: 6206241972313144975}
 --- !u!1 &3530262827359026801
 GameObject:
   m_ObjectHideFlags: 0

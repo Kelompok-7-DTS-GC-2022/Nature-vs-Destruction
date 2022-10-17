@@ -8,6 +8,7 @@ TagManager:
   - Holder
   - Manager
   - PlantGround
+  - PlantPointer
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - UI
   - GrowArea
   - Enemy
-  - Weapon
+  - Plant
   - 
   - 
   - 

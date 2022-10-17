@@ -513,6 +513,5 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 8
-  PlantList: []
-  TotalPlantGrow: 0
+  growSize: 0
   GridSize: 1
