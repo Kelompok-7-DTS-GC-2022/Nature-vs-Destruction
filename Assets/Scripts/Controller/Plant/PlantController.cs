@@ -29,6 +29,11 @@ public class PlantController : ICharacterController
     private void Update()
     {
         characterStateRule();
+        neighbourChecker();
+    }
+
+    void neighbourChecker()
+    {
         if (!checkPlantPlacement.hasNeighbour && isPlanted)
         {
             selfDieCoroutine = selfDie();
@@ -45,7 +50,6 @@ public class PlantController : ICharacterController
             }
         }
     }
-
     private IEnumerator selfDie()
     {
         yield return new WaitForSeconds(10);
@@ -102,7 +106,7 @@ public class PlantController : ICharacterController
     {
         var animationToDestroy = new AnimationUtilities();
         // start VFX
-        yield return StartCoroutine(animationToDestroy.waitAnimationToDestroy(animator, "Dead"));
+        yield return StartCoroutine(animationToDestroy.waitAnimationToDestroy(this.animator, "Dead"));
         //stop VFX
         //destroy
         Destroy(this.gameObject);
