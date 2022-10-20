@@ -10,14 +10,15 @@ public class Energy : MonoBehaviour
     void Start()
     {
         _transform = GetComponent<Transform>();
-        _fallSpeed = Random.Range(10, 20);
+        _fallSpeed = Random.Range(1, 2);
     }
 
     // Update is called once per frame
     void Update()
     {
+        print(transform.position);
         transform.Translate(Vector3.down * _fallSpeed * Time.deltaTime);
-        if (transform.position.y < -20)
+        if (transform.position.y < -2)
         {
             EnergyGone();
         }

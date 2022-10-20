@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 6973832500169606049}
   m_Layer: 0
   m_Name: CameraRig
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e64f7482c92b943a9bae1bee4d5512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  terrainMap: {fileID: 0}
+  cameraClampRadius: 20
   cameraMovementMaxSpeed: 20
   cameraDamp: 5
   cameraAceleration: 8
@@ -134,8 +136,6 @@ MonoBehaviour:
   cameraZoomStep: 2
   cameraMaxHeight: 30
   cameraMinHeight: 10
-  cameraZoomSpeed: {x: 0, y: 10, z: -10}
   targetPosition: {x: 0, y: 0, z: 0}
   lastPosition: {x: 0, y: 0, z: 0}
   horizontalVelocity: {x: 0, y: 0, z: 0}
-  startDrag: {x: 0, y: 0, z: 0}
