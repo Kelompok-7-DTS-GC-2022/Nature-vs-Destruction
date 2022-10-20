@@ -41,6 +41,7 @@ public class PlantingController : MonoBehaviour
             var intZ = Mathf.RoundToInt(pos.z);
             PendingPlant.transform.position = new Vector3(intX, pos.y, intZ);
             //UpdateMaterials();
+            print(checker.canPlant);
             if (Input.GetMouseButtonDown(0) && checker.canPlant)
             {
                 PlacePlant();
@@ -79,7 +80,7 @@ public class PlantingController : MonoBehaviour
         PendingPlant.GetComponent<PlantController>().isPlanted = true;
         PendingPlant.GetComponent<Collider>().isTrigger = false;
         PlantManager.Instance.plants.Add(PendingPlant);
-        GameManager.Instance.AddPlantGrow(growSize);
+        GameplayManager.Instance.AddPlantGrow(growSize);
         GameEventManager.Instance.plantUpdateEventInvoker(PlantManager.Instance.plants);
         PendingPlant = null;
     }

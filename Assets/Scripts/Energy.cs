@@ -24,7 +24,7 @@ public class Energy : MonoBehaviour
     }
     public void CollectEnergy()
     {
-        Debug.Log("Energy Collected");
+        EnergyContainer.instance.AddEnergy();
     }
     void EnergyGone()
     {
