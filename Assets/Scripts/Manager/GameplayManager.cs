@@ -12,10 +12,10 @@ public enum GameState
     GameOver,
     Win
 }
-public class GameManager : MonoBehaviour
+public class GameplayManager : MonoBehaviour
 {
-    private static GameManager instance = null;
-    public static GameManager Instance { get { if (instance == null) instance = FindObjectOfType<GameManager>(); return instance; } }
+    private static GameplayManager instance = null;
+    public static GameplayManager Instance { get { if (instance == null) instance = FindObjectOfType<GameplayManager>(); return instance; } }
     [Header("Area Manager")]
     public float PlantArea;
     [SerializeField] private float _startAreaGrow;
