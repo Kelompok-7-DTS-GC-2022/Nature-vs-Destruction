@@ -5,7 +5,7 @@ using TMPro;
 
 public class EnergyContainer : MonoBehaviour
 {
-    public int energyCount;
+    public int energyCount = 20000;
     [SerializeField] TextMeshProUGUI _energyTxt;
     public static EnergyContainer instance;
     private void Awake()
@@ -14,7 +14,7 @@ public class EnergyContainer : MonoBehaviour
     }
     private void Start()
     {
-        energyCount = 0;
+        energyCount = 20000;
         _energyTxt.text = energyCount.ToString();
     }
     public void AddEnergy()
@@ -24,7 +24,10 @@ public class EnergyContainer : MonoBehaviour
     }
     public void SpentEnergy(int _energyNeed)
     {
-        energyCount -= _energyNeed;
-        _energyTxt.text = energyCount.ToString();
+        if (energyCount > _energyNeed)
+        {
+            energyCount -= _energyNeed;
+            _energyTxt.text = energyCount.ToString();
+        }
     }
 }

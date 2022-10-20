@@ -7,6 +7,7 @@ public class PlantController : ICharacterController
 {
     public bool isPlanted = false;
     public float damage = 20;
+    public int plantCost;
     public Animator animator;
     public GameObject attackArea;
     [SerializeField]
@@ -25,6 +26,7 @@ public class PlantController : ICharacterController
         animator = GetComponentInChildren<Animator>();
         _maxHealthPlant = plantSO.MaxHPPlant;
         _currentHealthPlant = _maxHealthPlant;
+        plantCost = plantSO.costPlant;
     }
     private void Update()
     {
@@ -86,8 +88,8 @@ public class PlantController : ICharacterController
         {
             if (isPlanted)
             {
-                var enemyOverlap = Physics.OverlapSphere(transform.position, 3, layerMask);
-                if (enemyOverlap.Length > 0)
+                var enemyOverlapCheck = Physics.OverlapSphere(transform.position, 3, layerMask);
+                if (enemyOverlapCheck.Length > 0)
                 {
                     if (attackArea != null)
                     {
@@ -95,10 +97,10 @@ public class PlantController : ICharacterController
                         animator.Play("Attack");
                     }
                 }
-                else
-                {
-                    animator.Play("Idle");
-                }
+                // else
+                // {
+                //     animator.Play("Idle");
+                // }
             }
         }
     }
@@ -110,5 +112,10 @@ public class PlantController : ICharacterController
         //stop VFX
         //destroy
         Destroy(this.gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        GameplayManager.Instance.RemoveGrowPlant(plantSO.growPlant);
     }
 }

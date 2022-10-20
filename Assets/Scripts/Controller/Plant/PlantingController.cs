@@ -28,10 +28,12 @@ public class PlantingController : MonoBehaviour
     public float GridSize;
     bool isGrid = true;
     private CheckPlantPlacement checker;
+    private EnergyContainer energyContainer;
 
     private void Start()
     {
         cooldownImage.fillAmount = 0.0f;
+        energyContainer = EnergyContainer.instance;
     }
     void Update()
     {
@@ -71,17 +73,21 @@ public class PlantingController : MonoBehaviour
         //Todo : ChangeMaterial
     }
 
+    //ran on click plant
     public void PlacePlant()
     {
+        var plantController = PendingPlant.GetComponent<PlantController>();
+        plantController.animator.Play("Grow");
         checker.planted = true;
         PendingPlant.transform.parent = PlantManager.Instance.gameObject.transform;
         PendingPlant.gameObject.layer = LayerMask.NameToLayer("Plant");
-        PendingPlant.GetComponent<PlantController>().enabled = true;
-        PendingPlant.GetComponent<PlantController>().isPlanted = true;
+        plantController.enabled = true;
+        plantController.isPlanted = true;
         PendingPlant.GetComponent<Collider>().isTrigger = false;
         PlantManager.Instance.plants.Add(PendingPlant);
         GameplayManager.Instance.AddPlantGrow(growSize);
         GameEventManager.Instance.plantUpdateEventInvoker(PlantManager.Instance.plants);
+        EnergyContainer.instance.SpentEnergy(PlantSo.costPlant);
         PendingPlant = null;
     }
     private void FixedUpdate()
@@ -94,11 +100,7 @@ public class PlantingController : MonoBehaviour
     }
     public void SelectPlant()
     {
-        if (isCooldown)
-        {
-            //return
-        }
-        else
+        if (!isCooldown && energyContainer.energyCount >= PlantSo.costPlant)
         {
             PendingPlant = Instantiate(PlantPrefab, pos, transform.rotation);
             checker = PendingPlant.GetComponent<CheckPlantPlacement>();

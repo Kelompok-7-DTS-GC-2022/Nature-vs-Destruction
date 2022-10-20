@@ -10,9 +10,10 @@ using UnityEngine.Windows.Speech;
 
 public class CameraController : MonoBehaviour
 {
+    [Header("Map Reference")]
     [SerializeField]
     private GameObject terrainMap;
-
+    [Header("Camera Movement Control")]
     //movement
     float cameraSpeed;
     [SerializeField]
@@ -23,9 +24,16 @@ public class CameraController : MonoBehaviour
     private float cameraDamp = 15;
     [SerializeField]
     private float cameraAceleration = 10;
+
+    [Header("Camera Rotation Control")]
     //rotation
     [SerializeField]
+    private bool canRotate = false;
+    [SerializeField]
     private float cameraRotationSpeed = 2;
+    private Quaternion newRotation;
+
+    [Header("Camera Zoom Control")]
     //zoom
     private Vector3 zoomPosition;
     [SerializeField]
@@ -40,7 +48,7 @@ public class CameraController : MonoBehaviour
     private Vector3 lastPosition;
     [SerializeField]
     private Vector3 horizontalVelocity;
-    private Quaternion newRotation;
+
     private CameraInput cameraInput;
     private Transform cameraTransform;
     private InputAction movementInputAction;
@@ -65,7 +73,7 @@ public class CameraController : MonoBehaviour
         keyboardMovement();
         updateCameraVelocity();
         updateCamerPosition();
-        updateCameraRotation();
+        if (canRotate) updateCameraRotation();
         updateZoomPosition();
     }
 
@@ -153,6 +161,8 @@ public class CameraController : MonoBehaviour
         Vector2.ClampMagnitude(scrolInput, cameraMaxHeight);
         // scrolInput /= 3;
         scrolInput.y = Mathf.Clamp(scrolInput.y, cameraMinHeight, cameraMaxHeight);
+        zoomPosition.x = -scrolInput.y;
+
         zoomPosition.y = scrolInput.y;
         zoomPosition.z = -scrolInput.y;
 

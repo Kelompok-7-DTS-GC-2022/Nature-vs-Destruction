@@ -565,7 +565,6 @@ MonoBehaviour:
   amountHolder: 3
   holderPrefab: {fileID: 9058529693382781395, guid: 3aa68ca11d6672b45957204c45faa5ad, type: 3}
   holderTransform: {fileID: 1706103472}
-  holderPlants: []
   cost: 0
   iconPlant: {fileID: 0}
   plants: []
@@ -1295,10 +1294,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6973832499612435373, guid: 92829f993ba196c4eafdf5ebafebea11, type: 3}
-      propertyPath: orthographic
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6973832500169606048, guid: 92829f993ba196c4eafdf5ebafebea11, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1347,26 +1342,6 @@ PrefabInstance:
       propertyPath: terrainMap
       value: 
       objectReference: {fileID: 1697635331}
-    - target: {fileID: 6973832500169606049, guid: 92829f993ba196c4eafdf5ebafebea11, type: 3}
-      propertyPath: cameraZoomStep
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6973832500169606049, guid: 92829f993ba196c4eafdf5ebafebea11, type: 3}
-      propertyPath: cameraMaxHeight
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 6973832500169606049, guid: 92829f993ba196c4eafdf5ebafebea11, type: 3}
-      propertyPath: cameraAceleration
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6973832500169606049, guid: 92829f993ba196c4eafdf5ebafebea11, type: 3}
-      propertyPath: cameraClampRadius
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 6973832500169606049, guid: 92829f993ba196c4eafdf5ebafebea11, type: 3}
-      propertyPath: cameraRotationSpeed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6973832500169606051, guid: 92829f993ba196c4eafdf5ebafebea11, type: 3}
       propertyPath: m_Name
       value: CameraRig

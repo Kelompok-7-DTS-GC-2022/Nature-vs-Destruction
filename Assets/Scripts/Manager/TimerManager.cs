@@ -12,7 +12,8 @@ public class TimerManager : MonoBehaviour
     private float _timerEnd;
     [SerializeField] private TextMeshProUGUI _timerDisplay;
     [SerializeField] private float _timerStart;
-    // Start is called before the first frame update
+    public GameObject winPanel;
+    public GameObject losePanel;
     void Start()
     {
         _timerEnd = _timerStart;
@@ -28,17 +29,25 @@ public class TimerManager : MonoBehaviour
             _timerDisplay.text = span.ToString(@"mm\:ss");
             return;
         }
+        else if (_timerEnd > 0 && GameplayManager.Instance.PlantAreaGrow == 100)
+        {
+            // Debug.Log("WIN");
+            //Todo : Game State Win & Pop Up
+            winPanel.SetActive(true);
+        }
         else
         {
-            if (GameplayManager.Instance.PlantAreaGrow > GameplayManager.Instance.EnemyArea || GameplayManager.Instance.PlantAreaGrow == 100)
+            if (GameplayManager.Instance.PlantAreaGrow >= 60 || GameplayManager.Instance.PlantAreaGrow == 100)
             {
                 // Debug.Log("WIN");
                 //Todo : Game State Win & Pop Up
+                winPanel.SetActive(true);
             }
             else
             {
                 Debug.Log("Lose");
                 //Todo : Game State Lose & Pop Up
+                losePanel.SetActive(true);
             }
         }
     }

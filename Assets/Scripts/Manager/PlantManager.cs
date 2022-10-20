@@ -18,7 +18,7 @@ public class PlantManager : MonoBehaviour
     public Transform holderTransform;
 
     [Header("Plant Holder")]
-    public GameObject[] holderPlants;
+    // public GameObject[] holderPlants;
     public int cost;
     public Texture iconPlant;
 
@@ -43,29 +43,29 @@ public class PlantManager : MonoBehaviour
     }
     private void Start()
     {
-        amountHolder = plantSO.Length;
-        holderPlants = new GameObject[amountHolder];
-        for (int i = 0; i < amountHolder; i++)
-        {
-            AddPlantHolder(i);
-        }
+        // amountHolder = plantSO.Length;
+        // holderPlants = new GameObject[amountHolder];
+        // for (int i = 0; i < amountHolder; i++)
+        // {
+        //     AddPlantHolder(i);
+        // }
     }
 
-    public void AddPlantHolder(int index)
-    {
-        GameObject holder = Instantiate(holderPrefab, holderTransform);
-        PlantingController plantingmanager = holder.GetComponent<PlantingController>();
-        //Getting Planting Prefab
-        plantingmanager.PlantSo = plantSO[index];
-        plantingmanager.PlantPrefab = plantSO[index].prefabPlant;
-        plantingmanager.CooldownTime = plantSO[index].cooldownPlant;
-        plantingmanager.growSize = plantSO[index].growPlant;
-        holderPlants[index] = holder;
-        iconPlant = plantSO[index].iconPlant;
-        cost = plantSO[index].costPlant;
-        holder.GetComponentInChildren<RawImage>().texture = iconPlant;
-        holder.GetComponentInChildren<TMP_Text>().text = "" + cost;
-    }
+    // public void AddPlantHolder(int index)
+    // {
+    //     GameObject holder = Instantiate(holderPrefab, holderTransform);
+    //     PlantingController plantingmanager = holder.GetComponent<PlantingController>();
+    //     //Getting Planting Prefab
+    //     plantingmanager.PlantSo = plantSO[index];
+    //     plantingmanager.PlantPrefab = plantSO[index].prefabPlant;
+    //     plantingmanager.CooldownTime = plantSO[index].cooldownPlant;
+    //     plantingmanager.growSize = plantSO[index].growPlant;
+    //     holderPlants[index] = holder;
+    //     iconPlant = plantSO[index].iconPlant;
+    //     cost = plantSO[index].costPlant;
+    //     holder.GetComponentInChildren<RawImage>().texture = iconPlant;
+    //     holder.GetComponentInChildren<TMP_Text>().text = "" + cost;
+    // }
 
 
     // public void SpawnPlant()
