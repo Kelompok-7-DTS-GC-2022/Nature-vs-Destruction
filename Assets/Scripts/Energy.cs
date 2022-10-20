@@ -16,7 +16,6 @@ public class Energy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(transform.position);
         transform.Translate(Vector3.down * _fallSpeed * Time.deltaTime);
         if (transform.position.y < -2)
         {

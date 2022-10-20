@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -9,12 +10,14 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] Toggle _sFX;
     private void Start()
     {
-
         LoadBGMnSFX();
+    }
+    public void StartGame()
+    {
+        SceneManager.LoadScene("HUD");
     }
     public void QuitGame()
     {
-
         Application.Quit();
     }
     public void ToggleSFX(bool isOn)
