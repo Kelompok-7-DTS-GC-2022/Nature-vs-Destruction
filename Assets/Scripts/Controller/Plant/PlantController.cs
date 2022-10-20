@@ -116,6 +116,6 @@ public class PlantController : ICharacterController
 
     private void OnDestroy()
     {
-        GameplayManager.Instance.RemoveGrowPlant(plantSO.growPlant);
+        GameplayManager.Instance.RemoveGrowPlant(getGrowArea());
     }
 }
