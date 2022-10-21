@@ -8,7 +8,7 @@ public class EnergySpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnEnergy", 8, 8);
+        InvokeRepeating("SpawnEnergy", 3, 5);
     }
 
     // Update is called once per frame

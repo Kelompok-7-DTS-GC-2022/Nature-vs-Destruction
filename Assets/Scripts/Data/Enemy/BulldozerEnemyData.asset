@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BulldozerEnemyData
   m_EditorClassIdentifier: 
   healthPoint: 100
-  damagePoint: 15
+  damagePoint: 12
   damagePerSecond: 4
-  movementSpeed: 2
+  movementSpeed: 1
   thresholdSpawnMin: 20
   thresholdSpawnMax: 20
   enemyPrefab: {fileID: 7945045007305449208, guid: 2a3f914f2d1891d44bd6034a35fe9312, type: 3}

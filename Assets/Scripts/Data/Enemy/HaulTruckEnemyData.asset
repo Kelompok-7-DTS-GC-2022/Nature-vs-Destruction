@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: HaulTruckEnemyData
   m_EditorClassIdentifier: 
   healthPoint: 75
-  damagePoint: 10
+  damagePoint: 7
   damagePerSecond: 2
-  movementSpeed: 5
-  thresholdSpawnMin: 10
-  thresholdSpawnMax: 10
+  movementSpeed: 1.4
+  thresholdSpawnMin: 12
+  thresholdSpawnMax: 12
   enemyPrefab: {fileID: 5022050680288276710, guid: ad9af93a5c6df8c409857065e5b5cc71, type: 3}

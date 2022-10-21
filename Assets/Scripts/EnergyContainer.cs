@@ -14,7 +14,7 @@ public class EnergyContainer : MonoBehaviour
     }
     private void Start()
     {
-        energyCount = 20000;
+        energyCount = 0;
         _energyTxt.text = energyCount.ToString();
     }
     public void AddEnergy()

@@ -9,7 +9,7 @@ public class PadiEnergy : MonoBehaviour
     private void Start()
     {
         _animator = GetComponent<Animator>();
-        InvokeRepeating("CollectEnergyPadi", 3, 3);
+        InvokeRepeating("CollectEnergyPadi", 16, 16);
     }
     // Update is called once per frame
     void Update()

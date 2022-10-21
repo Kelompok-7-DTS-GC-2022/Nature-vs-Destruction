@@ -10,7 +10,7 @@ public class TimerManager : MonoBehaviour
 {
     private GameplayManager gameplayManager;
     [Header("Timer Manager")]
-    private float _timerEnd;
+    public float _timerEnd;
     [SerializeField] private TextMeshProUGUI _timerDisplay;
     [SerializeField] private float _timerStart;
     public GameObject winPanel;
@@ -66,6 +66,7 @@ public class TimerManager : MonoBehaviour
         {
             Debug.Log("Lose");
             //Todo : Game State Lose & Pop Up
+            Time.timeScale = 0;
             losePanel.SetActive(true);
         }
     }

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ExcavatorEnemyData
   m_EditorClassIdentifier: 
   healthPoint: 50
-  damagePoint: 25
+  damagePoint: 5
   damagePerSecond: 3
-  movementSpeed: 3
-  thresholdSpawnMin: 7
-  thresholdSpawnMax: 7
+  movementSpeed: 2
+  thresholdSpawnMin: 15
+  thresholdSpawnMax: 15
   enemyPrefab: {fileID: 2229171509676513558, guid: 79141aaa43bc8ab4089460d3b95ab14a, type: 3}
