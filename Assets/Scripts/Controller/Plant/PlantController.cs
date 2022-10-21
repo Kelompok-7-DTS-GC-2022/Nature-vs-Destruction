@@ -114,8 +114,14 @@ public class PlantController : ICharacterController
         Destroy(this.gameObject);
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
-        GameplayManager.Instance.RemoveGrowPlant(getGrowArea());
+        if (GameplayManager.Instance != null)
+        {
+            GameplayManager.
+            Instance.
+            RemoveGrowPlant(
+                getGrowArea());
+        }
     }
 }

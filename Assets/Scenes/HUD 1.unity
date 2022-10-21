@@ -117,12 +117,12 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualTileSize: 0
     tileSize: 256
-    accuratePlacement: 0
+    accuratePlacement: 1
     maxJobWorkers: 0
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 11bcc9ee9973f77498b1e04e36252da5, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ef94515186999734f8870097852b97e3, type: 2}
 --- !u!224 &8733498 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8525765626135754314, guid: dcc7629edacb2334482264c5edf78fd3, type: 3}
@@ -149,12 +149,13 @@ GameObject:
   m_Component:
   - component: {fileID: 304723650}
   - component: {fileID: 304723651}
+  - component: {fileID: 304723652}
   m_Layer: 3
   m_Name: TerrrainArea
   m_TagString: PlantGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &304723650
 Transform:
@@ -165,7 +166,7 @@ Transform:
   m_GameObject: {fileID: 304723649}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 30, y: 0.1, z: 30}
+  m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 691088739}
   m_RootOrder: 0
@@ -181,8 +182,16 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.1432385, y: 0.5, z: 4.0277233}
-  m_Center: {x: -0.013971011, y: 0, z: -0.035605367}
+  m_Size: {x: 24, y: 0.5, z: 24}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &304723652
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304723649}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &356233600 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6342778057749870037, guid: 9c78c88e9b91d56419fd8c0b5e45dfe5, type: 3}
@@ -375,7 +384,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &531874469
 BoxCollider:
@@ -397,7 +406,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531874468}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -447,8 +456,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531874468}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -58.1, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 0.25, z: 84.077995}
+  m_LocalPosition: {x: 19, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 0.25, z: 24}
   m_Children: []
   m_Father: {fileID: 691088739}
   m_RootOrder: 1
@@ -477,7 +486,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &691088739
 Transform:
@@ -518,7 +527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &989861558
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -846,7 +855,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1786636078}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 922c262a4348f4245a2362bc87d49f08, type: 3}
   m_Name: 
@@ -944,6 +953,10 @@ PrefabInstance:
       propertyPath: terrainMap
       value: 
       objectReference: {fileID: 304723649}
+    - target: {fileID: 6973832500169606049, guid: 92829f993ba196c4eafdf5ebafebea11, type: 3}
+      propertyPath: cameraClampRadius
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 6973832500169606051, guid: 92829f993ba196c4eafdf5ebafebea11, type: 3}
       propertyPath: m_Name
       value: CameraRig
@@ -1064,7 +1077,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1930185725
 Transform:
@@ -1075,7 +1088,7 @@ Transform:
   m_GameObject: {fileID: 1930185724}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 30, y: 1, z: 30}
+  m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 691088739}
   m_RootOrder: 2
@@ -1449,7 +1462,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7559112442786348583, guid: 7b1646641d876b6428f228cddc5a557c, type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7559112442786348583, guid: 7b1646641d876b6428f228cddc5a557c, type: 3}
+      propertyPath: m_MaxValue
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7559112442859314143, guid: 7b1646641d876b6428f228cddc5a557c, type: 3}
       propertyPath: m_AnchorMax.x

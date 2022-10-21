@@ -14,20 +14,16 @@ public enum GameState
 }
 public class GameplayManager : MonoBehaviour
 {
-    private static GameplayManager instance = null;
-    public static GameplayManager Instance { get { if (instance == null) instance = FindObjectOfType<GameplayManager>(); return instance; } }
+    public static GameplayManager Instance;
     [Header("Area Manager")]
 
     [SerializeField] private float _startAreaGrow;
     public float PlantAreaGrow;
     public float plantAreaPercentage;
     [SerializeField] private float _startEnemyArea;
-    public Collider terrainReference;
+    public BoxCollider terrainReference;
     public Slider sliderProgress;
     public float terrainSize;
-
-
-
 
     [Header("GameState")]
     [SerializeField]
@@ -38,11 +34,20 @@ public class GameplayManager : MonoBehaviour
         get => gameState;
         set => gameState = value;
     }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
     void Start()
     {
-        instance = this;
+
         PlantAreaGrow = _startAreaGrow;
-        terrainSize = terrainReference.bounds.size.x * terrainReference.bounds.size.x;
+        terrainSize = terrainReference.size.x * terrainReference.size.z;
+        sliderProgress.maxValue = terrainSize;
     }
     void Update()
     {
@@ -60,7 +65,6 @@ public class GameplayManager : MonoBehaviour
 
     void calculateArea()
     {
-        plantAreaPercentage = (PlantAreaGrow / terrainSize) * 100;
-        sliderProgress.value = plantAreaPercentage;
+        sliderProgress.value = PlantAreaGrow;
     }
 }

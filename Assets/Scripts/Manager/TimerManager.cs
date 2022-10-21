@@ -8,6 +8,7 @@ using System.Linq;
 
 public class TimerManager : MonoBehaviour
 {
+    private GameplayManager gameplayManager;
     [Header("Timer Manager")]
     private float _timerEnd;
     [SerializeField] private TextMeshProUGUI _timerDisplay;
@@ -16,6 +17,8 @@ public class TimerManager : MonoBehaviour
     public GameObject losePanel;
     void Start()
     {
+        gameplayManager = GameplayManager.Instance;
+
         _timerEnd = _timerStart;
     }
 
@@ -27,9 +30,10 @@ public class TimerManager : MonoBehaviour
             _timerEnd -= Time.deltaTime;
             TimeSpan span = TimeSpan.FromSeconds(_timerEnd);
             _timerDisplay.text = span.ToString(@"mm\:ss");
-            return;
+            // return;
         }
-        else if (_timerEnd > 0 && GameplayManager.Instance.PlantAreaGrow == 100)
+
+        if (_timerEnd > 0 && gameplayManager.PlantAreaGrow >= gameplayManager.terrainSize)
         {
             // Debug.Log("WIN");
             //Todo : Game State Win & Pop Up
@@ -37,7 +41,7 @@ public class TimerManager : MonoBehaviour
         }
         else
         {
-            if (GameplayManager.Instance.PlantAreaGrow >= 60 || GameplayManager.Instance.PlantAreaGrow == 100)
+            if (gameplayManager.PlantAreaGrow >= (gameplayManager.terrainSize * 0.6) || gameplayManager.PlantAreaGrow == gameplayManager.terrainSize)
             {
                 // Debug.Log("WIN");
                 //Todo : Game State Win & Pop Up
