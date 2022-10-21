@@ -59,6 +59,7 @@ public class TimerManager : MonoBehaviour
         {
             Debug.Log("WIN");
             //Todo : Game State Win & Pop Up
+            Time.timeScale = 0;
             winPanel.SetActive(true);
         }
         void lose()

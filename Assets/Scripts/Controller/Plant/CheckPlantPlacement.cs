@@ -31,7 +31,6 @@ public class CheckPlantPlacement : MonoBehaviour
     {
         var plantOverlap = Physics.OverlapBox(boxPos, boxSize.size, transform.rotation, layer);
         var neighbour = plantOverlap.Where(plant => plant.transform != transform);
-        print(neighbour.Count());
         if (neighbour.Count() > 0)
         {
             hasNeighbour = true;
@@ -57,7 +56,6 @@ public class CheckPlantPlacement : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-
         Gizmos.color = Color.yellow;
         var boxSize = GetComponent<Collider>().bounds;
         var boxPos = boxSize.center;

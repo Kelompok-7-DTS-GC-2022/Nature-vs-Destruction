@@ -2801,7 +2801,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 23.5, y: 0.5, z: 23.5}
+  m_Size: {x: 24, y: 0.5, z: 24}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &304723652
 MeshFilter:
@@ -8284,7 +8284,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248264626}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0002, z: 0}
+  m_LocalPosition: {x: 0, y: 0.0009, z: 0}
   m_LocalScale: {x: 2.5, y: 1, z: 2.5}
   m_Children: []
   m_Father: {fileID: 691088739}
@@ -15795,12 +15795,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 775828236}
     - target: {fileID: 6377259663707201136, guid: 9c78c88e9b91d56419fd8c0b5e45dfe5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1027946997}
+    - target: {fileID: 6377259663707201136, guid: 9c78c88e9b91d56419fd8c0b5e45dfe5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 6377259663707201136, guid: 9c78c88e9b91d56419fd8c0b5e45dfe5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 6377259663707201136, guid: 9c78c88e9b91d56419fd8c0b5e45dfe5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PauseGame
       objectReference: {fileID: 0}
     - target: {fileID: 6377259663707201136, guid: 9c78c88e9b91d56419fd8c0b5e45dfe5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

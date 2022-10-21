@@ -16,6 +16,6 @@ MonoBehaviour:
   damagePoint: 10
   damagePerSecond: 2
   movementSpeed: 5
-  thresholdSpawnMin: 9
-  thresholdSpawnMax: 11
+  thresholdSpawnMin: 10
+  thresholdSpawnMax: 10
   enemyPrefab: {fileID: 5022050680288276710, guid: ad9af93a5c6df8c409857065e5b5cc71, type: 3}

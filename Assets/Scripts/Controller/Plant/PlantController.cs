@@ -16,10 +16,15 @@ public class PlantController : ICharacterController
     private PlayerScriptableObject plantSO;
     [SerializeField]
     private float _currentHealthPlant;
+    private float plantGrowArea;
     public LayerMask layerMask;
     private CheckPlantPlacement checkPlantPlacement;
     private IEnumerator selfDieCoroutine;
-
+    private void Awake()
+    {
+        plantCost = plantSO.costPlant;
+        plantGrowArea = plantSO.growPlant;
+    }
     void Start()
     {
         // GetComponent<MeshRenderer>().material.SetColor("_BaseColor", Color.red);
@@ -27,7 +32,6 @@ public class PlantController : ICharacterController
         animator = GetComponentInChildren<Animator>();
         _maxHealthPlant = plantSO.MaxHPPlant;
         _currentHealthPlant = _maxHealthPlant;
-        plantCost = plantSO.costPlant;
     }
     private void Update()
     {
@@ -63,7 +67,7 @@ public class PlantController : ICharacterController
     }
     // void selfDie() => takeTheDamage(5);
     public float getPlantHP() => _currentHealthPlant;
-    public float getGrowArea() => plantSO.growPlant;
+    public float getGrowArea() => plantGrowArea;
 
 
     public override void activateAttackArea() => attackArea.SetActive(true);
@@ -112,17 +116,10 @@ public class PlantController : ICharacterController
         yield return StartCoroutine(animationToDestroy.waitAnimationToDestroy(this.animator, "Dead"));
         //stop VFX
         //destroy
+        GameplayManager.
+        Instance?.
+        RemoveGrowPlant(
+            getGrowArea());
         Destroy(this.gameObject);
-    }
-
-    private void OnDisable()
-    {
-        if (GameplayManager.Instance != null)
-        {
-            GameplayManager.
-            Instance.
-            RemoveGrowPlant(
-                getGrowArea());
-        }
     }
 }

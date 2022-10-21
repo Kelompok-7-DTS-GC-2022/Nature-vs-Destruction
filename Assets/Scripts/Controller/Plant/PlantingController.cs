@@ -21,12 +21,7 @@ public class PlantingController : MonoBehaviour
     private Vector3 pos;
     private RaycastHit hit;
     [SerializeField] public LayerMask layerMask;
-
-    public float growSize;
-
     [Header("Grid Option")]
-    public float GridSize;
-    bool isGrid = true;
     private CheckPlantPlacement checker;
     private EnergyContainer energyContainer;
 
@@ -85,7 +80,7 @@ public class PlantingController : MonoBehaviour
         plantController.isPlanted = true;
         PendingPlant.GetComponent<Collider>().isTrigger = false;
         PlantManager.Instance.plants.Add(PendingPlant);
-        GameplayManager.Instance.AddPlantGrow(growSize);
+        GameplayManager.Instance.AddPlantGrow(PlantSo.growPlant);
         GameEventManager.Instance.plantUpdateEventInvoker(PlantManager.Instance.plants);
         EnergyContainer.instance.SpentEnergy(PlantSo.costPlant);
         PendingPlant = null;
