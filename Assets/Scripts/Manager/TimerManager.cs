@@ -21,7 +21,6 @@ public class TimerManager : MonoBehaviour
 
         _timerEnd = _timerStart;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -35,24 +34,38 @@ public class TimerManager : MonoBehaviour
 
         if (_timerEnd > 0 && gameplayManager.PlantAreaGrow >= gameplayManager.terrainSize)
         {
-            // Debug.Log("WIN");
-            //Todo : Game State Win & Pop Up
-            winPanel.SetActive(true);
+            win();
+        }
+        else if (_timerEnd > 0 && gameplayManager.PlantAreaGrow <= 0)
+        {
+            lose();
         }
         else
         {
-            if (gameplayManager.PlantAreaGrow >= (gameplayManager.terrainSize * 0.6) || gameplayManager.PlantAreaGrow == gameplayManager.terrainSize)
+            if (_timerEnd <= 0)
             {
-                // Debug.Log("WIN");
-                //Todo : Game State Win & Pop Up
-                winPanel.SetActive(true);
+                if (gameplayManager.PlantAreaGrow >= (gameplayManager.terrainSize * 0.6) || gameplayManager.PlantAreaGrow == gameplayManager.terrainSize)
+                {
+                    win();
+                }
+                else
+                {
+                    lose();
+                }
             }
-            else
-            {
-                Debug.Log("Lose");
-                //Todo : Game State Lose & Pop Up
-                losePanel.SetActive(true);
-            }
+        }
+
+        void win()
+        {
+            Debug.Log("WIN");
+            //Todo : Game State Win & Pop Up
+            winPanel.SetActive(true);
+        }
+        void lose()
+        {
+            Debug.Log("Lose");
+            //Todo : Game State Lose & Pop Up
+            losePanel.SetActive(true);
         }
     }
 }

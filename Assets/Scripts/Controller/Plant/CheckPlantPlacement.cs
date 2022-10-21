@@ -27,7 +27,7 @@ public class CheckPlantPlacement : MonoBehaviour
             canPlant = true;
         }
     }
-    void checkIfTheresAnyPlantOnPlanted()
+    void checkIfTheresAnyPlantOnTerrain()
     {
         var plantOverlap = Physics.OverlapBox(boxPos, boxSize.size, transform.rotation, layer);
         var neighbour = plantOverlap.Where(plant => plant.transform != transform);
@@ -48,7 +48,7 @@ public class CheckPlantPlacement : MonoBehaviour
         boxPos = boxSize.center;
         if (planted)
         {
-            checkIfTheresAnyPlantOnPlanted();
+            checkIfTheresAnyPlantOnTerrain();
         }
         else
         {

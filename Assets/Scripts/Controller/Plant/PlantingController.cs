@@ -100,7 +100,7 @@ public class PlantingController : MonoBehaviour
     }
     public void SelectPlant()
     {
-        if (!isCooldown && energyContainer.energyCount >= PlantSo.costPlant)
+        if (!isCooldown && energyContainer.energyCount >= PlantSo.costPlant && PendingPlant == null)
         {
             PendingPlant = Instantiate(PlantPrefab, pos, transform.rotation);
             checker = PendingPlant.GetComponent<CheckPlantPlacement>();

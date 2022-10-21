@@ -22,6 +22,7 @@ public class PlantController : ICharacterController
 
     void Start()
     {
+        // GetComponent<MeshRenderer>().material.SetColor("_BaseColor", Color.red);
         checkPlantPlacement = GetComponent<CheckPlantPlacement>();
         animator = GetComponentInChildren<Animator>();
         _maxHealthPlant = plantSO.MaxHPPlant;

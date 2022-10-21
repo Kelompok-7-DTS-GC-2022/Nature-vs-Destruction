@@ -19,8 +19,6 @@ public class GameplayManager : MonoBehaviour
 
     [SerializeField] private float _startAreaGrow;
     public float PlantAreaGrow;
-    public float plantAreaPercentage;
-    [SerializeField] private float _startEnemyArea;
     public BoxCollider terrainReference;
     public Slider sliderProgress;
     public float terrainSize;
@@ -44,8 +42,6 @@ public class GameplayManager : MonoBehaviour
     }
     void Start()
     {
-
-        PlantAreaGrow = _startAreaGrow;
         terrainSize = terrainReference.size.x * terrainReference.size.z;
         sliderProgress.maxValue = terrainSize;
     }
