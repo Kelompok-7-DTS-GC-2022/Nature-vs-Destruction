@@ -42,7 +42,7 @@ public class GameplayManager : MonoBehaviour
     {
         instance = this;
         PlantAreaGrow = _startAreaGrow;
-        terrainSize = terrainReference.bounds.size.x * terrainReference.bounds.size.x;
+        terrainSize = terrainReference.bounds.size.x * terrainReference.bounds.size.z;
     }
     void Update()
     {

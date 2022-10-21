@@ -29,7 +29,7 @@ public class TimerManager : MonoBehaviour
             _timerDisplay.text = span.ToString(@"mm\:ss");
             return;
         }
-        else if (_timerEnd > 0 && GameplayManager.Instance.PlantAreaGrow == 100)
+        else if (_timerEnd > 0 && GameplayManager.Instance.plantAreaPercentage == 100)
         {
             // Debug.Log("WIN");
             //Todo : Game State Win & Pop Up
@@ -37,7 +37,7 @@ public class TimerManager : MonoBehaviour
         }
         else
         {
-            if (GameplayManager.Instance.PlantAreaGrow >= 60 || GameplayManager.Instance.PlantAreaGrow == 100)
+            if (GameplayManager.Instance.plantAreaPercentage >= 60 || GameplayManager.Instance.plantAreaPercentage == 100)
             {
                 // Debug.Log("WIN");
                 //Todo : Game State Win & Pop Up

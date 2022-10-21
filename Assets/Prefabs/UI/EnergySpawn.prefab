@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8525765626135754314}
   - component: {fileID: 8525765626135754315}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: EnergySpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
