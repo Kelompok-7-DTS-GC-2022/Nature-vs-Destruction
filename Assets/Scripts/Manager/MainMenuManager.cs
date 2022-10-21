@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyAnimationManager : MonoBehaviour
+public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] Toggle _bGM;
     [SerializeField] Toggle _sFX;
     private void Start()
     {
-
         LoadBGMnSFX();
+    }
+    public void StartGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("HUD");
     }
     public void QuitGame()
     {

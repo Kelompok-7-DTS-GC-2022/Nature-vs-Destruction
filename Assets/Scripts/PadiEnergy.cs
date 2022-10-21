@@ -20,6 +20,5 @@ public class PadiEnergy : MonoBehaviour
     {
         EnergyContainer.instance.AddEnergy();
         _animator.Play("CollectEnergy");
-        print("Collect Energy");
     }
 }
