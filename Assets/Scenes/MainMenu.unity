@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2780,21 +2780,21 @@ MonoBehaviour:
 
     faris miqdad
 
-    fauzan ur
-    rifai
+    fauzan ur rifai
 
     erzhanto
 
-    argi octanto
+    argi
+    octanto
 
     argi octanto
 
-    afif mardani
-    f
+    afif mardani f
 
     sandy izaz fauzy
 
-    afif mardani f
+    afif
+    mardani f
 
     argi octanto'
   m_isRightToLeft: 0
@@ -2835,7 +2835,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 18.5
   m_wordSpacing: 0
-  m_lineSpacing: 43.14
+  m_lineSpacing: 48.44
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -3014,7 +3014,6 @@ MonoBehaviour:
 
     programmer
 
-    
 
     lead
     artist
@@ -3023,12 +3022,10 @@ MonoBehaviour:
 
     3d artist
 
-    
 
     vfx artist
 
-    ui
-    artist'
+    ui artist'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4874d8c7cfcb3ef478afb2808ff93cf9, type: 2}
   m_sharedMaterial: {fileID: 7028061566023529980, guid: 4874d8c7cfcb3ef478afb2808ff93cf9, type: 2}
@@ -3067,7 +3064,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 18.5
   m_wordSpacing: 0
-  m_lineSpacing: 43.14
+  m_lineSpacing: 48.4
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
