@@ -8,7 +8,7 @@ public class EnergySpawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnEnergy", 0, Random.Range(7, 13));
+        InvokeRepeating("SpawnEnergy", 0, 8);
     }
 
     // Update is called once per frame
@@ -18,6 +18,6 @@ public class EnergySpawn : MonoBehaviour
     }
     void SpawnEnergy()
     {
-        Instantiate(_energyPrefab, new Vector3(Random.Range(transform.position.x - 70, transform.position.x + 70), transform.position.y - 10, transform.position.z), Quaternion.identity, transform);
+        Instantiate(_energyPrefab, new Vector3(Random.Range(-6, 6), 3.3f, transform.position.z), Quaternion.identity, transform);
     }
 }
