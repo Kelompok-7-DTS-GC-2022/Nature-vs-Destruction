@@ -1,11 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Unity.PlasticSCM.Editor;
 using UnityEngine;
-using UnityEngine.Playables;
-using UnityEngine.PlayerLoop;
 
 public class EnemyController : ICharacterController
 {
@@ -121,6 +116,7 @@ public class EnemyController : ICharacterController
     {
         var animationToDestroy = new AnimationUtilities();
         // start VFX
+        this.GetComponent<VfxController>().EnemyDeath();
         yield return StartCoroutine(animationToDestroy.waitAnimationToDestroy(enemyAnimator, "Dead"));
         //stop VFX
         //destroy
@@ -151,7 +147,11 @@ public class EnemyController : ICharacterController
     public override void activateAttackArea() => attackArea.SetActive(true);
     public override void deactivateAttackArea() => attackArea.SetActive(false);
     //use this to damage this enemy
-    public override void takeTheDamage(float damage) => healthPoint -= damage;
+    public override void takeTheDamage(float damage)
+    {
+        healthPoint -= damage;
+        this.GetComponent<VfxController>().EnemyDamaged();
+    }
     // count distance between this enemy and some plant
     private float distanceCounter(Vector3 pointOne, Vector3 pointTwo) => Vector3.Distance(pointOne, pointTwo);
     //unsubscribing game event on disable or before destroyed

@@ -2171,6 +2171,7 @@ GameObject:
   - component: {fileID: 8241332925443787074}
   - component: {fileID: 3244589261336060898}
   - component: {fileID: 1840662098}
+  - component: {fileID: 5449585675293877526}
   m_Layer: 0
   m_Name: Pohon_Beringin2
   m_TagString: Plant
@@ -2274,6 +2275,19 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &5449585675293877526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9123854623042696212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de4d4df1324f254eb3589fa8d17887f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _plantDamaged: {fileID: 8331553925138036456}
 --- !u!1 &9168240041353024318
 GameObject:
   m_ObjectHideFlags: 0
@@ -2312,6 +2326,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8490870642608156334}
     m_Modifications:
+    - target: {fileID: 8312749077320031040, guid: 2ffa07032fa11d441b36458d673d319b, type: 3}
+      propertyPath: ShapeModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8312749077338084336, guid: 2ffa07032fa11d441b36458d673d319b, type: 3}
       propertyPath: m_Name
       value: vfx_PohonKenaDamage
@@ -2367,6 +2385,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8312749077338340532, guid: 2ffa07032fa11d441b36458d673d319b, type: 3}
   m_PrefabInstance: {fileID: 55011973489814952}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &8331553925138036456 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8312749077320031040, guid: 2ffa07032fa11d441b36458d673d319b, type: 3}
+  m_PrefabInstance: {fileID: 55011973489814952}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3228731184199734026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2380,11 +2403,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5432037163456181125, guid: 1fd8b5691b667504a9710284958b01cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5432037163456181125, guid: 1fd8b5691b667504a9710284958b01cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.569
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5432037163456181125, guid: 1fd8b5691b667504a9710284958b01cd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2392,11 +2415,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5432037163456181125, guid: 1fd8b5691b667504a9710284958b01cd, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5432037163456181125, guid: 1fd8b5691b667504a9710284958b01cd, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5432037163456181125, guid: 1fd8b5691b667504a9710284958b01cd, type: 3}
       propertyPath: m_LocalRotation.y
@@ -2408,7 +2431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5432037163456181125, guid: 1fd8b5691b667504a9710284958b01cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5432037163456181125, guid: 1fd8b5691b667504a9710284958b01cd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y

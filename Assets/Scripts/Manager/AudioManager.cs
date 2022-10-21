@@ -23,6 +23,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip _levelComplete;
     [SerializeField] AudioClip _levelLose;
     [SerializeField] AudioClip _planting;
+    [SerializeField] AudioClip _ledakan;
+    [SerializeField] AudioClip _attackPohon;
+    [SerializeField] AudioClip _attackEnemy;
+
     AudioSource _audioSource;
     private void Start()
     {
@@ -60,5 +64,17 @@ public class AudioManager : MonoBehaviour
     public void PlayPlanting()
     {
         _audioSource.PlayOneShot(_planting);
+    }
+    public void PlayLedakan()
+    {
+        _audioSource.PlayOneShot(_ledakan);
+    }
+    public void PlayAttackPohon()
+    {
+        _audioSource.PlayOneShot(_attackPohon);
+    }
+    public void PlayAttackEnemy()
+    {
+        _audioSource.PlayOneShot(_attackEnemy);
     }
 }

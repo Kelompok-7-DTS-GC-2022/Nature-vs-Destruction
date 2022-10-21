@@ -13,7 +13,7 @@ public class MainMenuManager : MonoBehaviour
     }
     public void StartGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("HUD");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("HUD 2");
     }
     public void QuitGame()
     {
