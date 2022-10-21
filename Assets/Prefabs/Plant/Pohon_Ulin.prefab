@@ -716,6 +716,7 @@ GameObject:
   - component: {fileID: 5396081141420914010}
   - component: {fileID: 7101660861333029504}
   - component: {fileID: 3672987543082695946}
+  - component: {fileID: 1718364080811599505}
   m_Layer: 0
   m_Name: Pohon_Ulin
   m_TagString: Plant
@@ -823,6 +824,19 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &1718364080811599505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5054115086648395783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de4d4df1324f254eb3589fa8d17887f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _plantDamaged: {fileID: 9163577474898585053}
 --- !u!1 &5867559848131510714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,6 +1224,11 @@ PrefabInstance:
 --- !u!4 &9163577474883322409 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8312749077338340532, guid: 2ffa07032fa11d441b36458d673d319b, type: 3}
+  m_PrefabInstance: {fileID: 898257120687046301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &9163577474898585053 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8312749077320031040, guid: 2ffa07032fa11d441b36458d673d319b, type: 3}
   m_PrefabInstance: {fileID: 898257120687046301}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6366844158674496540

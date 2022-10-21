@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 2315651977514633396}
   - component: {fileID: 3850907281125220761}
   - component: {fileID: 4463443315153074778}
+  - component: {fileID: 645147207066458665}
   m_Layer: 0
   m_Name: Sawah
   m_TagString: Plant
@@ -398,6 +399,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sawahEnergyImage: {fileID: 7549152861134999510}
+--- !u!114 &645147207066458665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3385227254699168938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de4d4df1324f254eb3589fa8d17887f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _plantDamaged: {fileID: 7337559496600196062}
 --- !u!1 &4429482945920171784
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,6 +736,11 @@ PrefabInstance:
 --- !u!4 &7337559496581903402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8312749077338340532, guid: 2ffa07032fa11d441b36458d673d319b, type: 3}
+  m_PrefabInstance: {fileID: 1623809634072250526}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7337559496600196062 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8312749077320031040, guid: 2ffa07032fa11d441b36458d673d319b, type: 3}
   m_PrefabInstance: {fileID: 1623809634072250526}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8102338888098643956

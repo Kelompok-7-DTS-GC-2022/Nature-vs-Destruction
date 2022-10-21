@@ -70,7 +70,11 @@ public class PlantController : ICharacterController
 
     public override void deactivateAttackArea() => attackArea.SetActive(false);
 
-    public override void takeTheDamage(float damage) => _currentHealthPlant -= damage;
+    public override void takeTheDamage(float damage)
+    {
+        _currentHealthPlant -= damage;
+        this.GetComponent<VfxController>().PlantDamaged();
+    }
 
     public override void characterStateRule()
     {

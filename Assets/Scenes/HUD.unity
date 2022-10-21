@@ -340,15 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a77aa8687d49c44b9e5731a6f61d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantSO:
-  - {fileID: 11400000, guid: f579041b490065f4db23cf3e56a17df3, type: 2}
-  - {fileID: 11400000, guid: c029b494fac4bbb47b2cbefde8a5ee72, type: 2}
-  - {fileID: 11400000, guid: 1d77daace5e5eb04db40a07ae321cbdc, type: 2}
-  amountHolder: 3
-  holderPrefab: {fileID: 9058529693382781395, guid: 3aa68ca11d6672b45957204c45faa5ad, type: 3}
-  holderTransform: {fileID: 0}
-  cost: 0
-  iconPlant: {fileID: 0}
+  initialPlantData: {fileID: 11400000, guid: 2f09f1436bfa8fc4d903346498f15edd, type: 2}
   plants: []
 --- !u!4 &463998987
 Transform:
@@ -1095,8 +1087,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startAreaGrow: 0
   PlantAreaGrow: 0
-  plantAreaPercentage: 0
-  _startEnemyArea: 0
   terrainReference: {fileID: 304723651}
   sliderProgress: {fileID: 1764995848}
   terrainSize: 0
