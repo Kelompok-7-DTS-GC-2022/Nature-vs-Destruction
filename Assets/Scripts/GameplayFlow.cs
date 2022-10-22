@@ -29,7 +29,7 @@ public class GameplayFlow : MonoBehaviour
     }
     public void RestartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         AudioManager.instance.PlayClick();
     }
     public void MainMenu()
