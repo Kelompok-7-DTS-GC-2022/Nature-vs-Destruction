@@ -963,7 +963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3121230483065146633
 Transform:
   m_ObjectHideFlags: 0
@@ -2173,7 +2173,7 @@ GameObject:
   - component: {fileID: 1840662098}
   - component: {fileID: 5449585675293877526}
   m_Layer: 0
-  m_Name: Pohon_Beringin2
+  m_Name: Pohon_Beringin
   m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2275,6 +2275,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 256
+  tanah: {fileID: 1860996038740798027}
 --- !u!114 &5449585675293877526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2288,6 +2289,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _plantDamaged: {fileID: 8331553925138036456}
+  _enemyDamaged: {fileID: 0}
+  _enemyDeath: {fileID: 0}
+  _enemyAttack: {fileID: 0}
 --- !u!1 &9168240041353024318
 GameObject:
   m_ObjectHideFlags: 0

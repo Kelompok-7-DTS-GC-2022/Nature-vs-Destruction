@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 5364870986468439331}
   m_Layer: 7
   m_Name: Excavator_v6
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -448,7 +448,7 @@ MonoBehaviour:
   damagePoint: 5
   layer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 384
 --- !u!1 &3463213980679691882
 GameObject:
   m_ObjectHideFlags: 0

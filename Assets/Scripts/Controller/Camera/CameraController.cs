@@ -96,9 +96,12 @@ public class CameraController : MonoBehaviour
     #region CameraHorizonalMovement
     void updateCameraVelocity()
     {
-        horizontalVelocity = (this.transform.position - lastPosition) / Time.deltaTime;
-        horizontalVelocity.y = 0;
-        lastPosition = transform.position;
+        if (!Time.deltaTime.Equals(0))
+        {
+            horizontalVelocity = (this.transform.position - lastPosition) / Time.deltaTime;
+            horizontalVelocity.y = 0;
+            lastPosition = transform.position;
+        }
     }
 
     void keyboardMovement()
@@ -134,9 +137,12 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            horizontalVelocity = Vector3.Lerp(horizontalVelocity, Vector3.zero, Time.deltaTime * cameraDamp);
-            this.transform.position += horizontalVelocity * Time.deltaTime;
-            // this.transform.position = clampCamera(this.transform.position);
+            if (!Time.timeScale.Equals(0))
+            {
+                horizontalVelocity = Vector3.Lerp(horizontalVelocity, Vector3.zero, Time.deltaTime * cameraDamp);
+                this.transform.position += horizontalVelocity * Time.deltaTime;
+                // this.transform.position = clampCamera(this.transform.position);
+            }
         }
         targetPosition = Vector3.zero;
     }

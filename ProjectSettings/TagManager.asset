@@ -9,6 +9,7 @@ TagManager:
   - Manager
   - PlantGround
   - PlantPointer
+  - Enemy
   layers:
   - Default
   - TransparentFX

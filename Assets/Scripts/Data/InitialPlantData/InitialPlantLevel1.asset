@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: InitialPlantLevel1
   m_EditorClassIdentifier: 
   plants:
-  - {fileID: 3221686305501041722, guid: 72434d61bb70c2245bd868474802992d, type: 3}
-  - {fileID: 5693727685304588182, guid: 5c029bf6b8f737344949e408a2ee0462, type: 3}
-  - {fileID: 3223651165187934458, guid: 2ca38f5dc1fd6f042a7ab01b046922c7, type: 3}
-  - {fileID: 3815630361301229597, guid: 9e7ba6c0083be3749849df6e00a5104c, type: 3}
+  - {fileID: 5054115086648395783, guid: 251c62ae6f81fbd439f602a0258afede, type: 3}
+  - {fileID: 9123854623042696212, guid: d884326925ae4ab4a839b54894a2388d, type: 3}
+  - {fileID: 3385227254699168938, guid: 75fe40cb8007ddf4b9e22b54fcfbe320, type: 3}
+  - {fileID: 3385227254699168938, guid: 75fe40cb8007ddf4b9e22b54fcfbe320, type: 3}

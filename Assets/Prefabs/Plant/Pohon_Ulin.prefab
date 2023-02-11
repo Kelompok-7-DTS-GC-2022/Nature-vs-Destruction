@@ -290,7 +290,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3591857213079372323}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: -40.81522, z: 0}
 --- !u!1 &2614849117154343583
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +411,7 @@ Transform:
   - {fileID: 4730331449969820886}
   m_Father: {fileID: 5577710647349514941}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98021, y: 0, z: 0}
 --- !u!1 &4161255918723596885
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,7 +528,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3591857213079372323}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50.593887, y: -179.99997, z: -179.99997}
 --- !u!1 &4782462514034031348
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +758,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5054115086648395783}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68794414c2019aa4087f4c00530515b7, type: 3}
   m_Name: 
@@ -824,6 +824,7 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 256
+  tanah: {fileID: 7931239894334552780}
 --- !u!114 &1718364080811599505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -837,6 +838,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _plantDamaged: {fileID: 9163577474898585053}
+  _enemyDamaged: {fileID: 0}
+  _enemyDeath: {fileID: 0}
+  _enemyAttack: {fileID: 0}
 --- !u!1 &5867559848131510714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,7 +1044,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3591857213079372323}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 1.1344126, z: 0}
 --- !u!1 &7931239894334552780
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,7 +1155,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3591857213079372323}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 89.98021, y: 0, z: 0}
 --- !u!1001 &898257120687046301
 PrefabInstance:
   m_ObjectHideFlags: 0

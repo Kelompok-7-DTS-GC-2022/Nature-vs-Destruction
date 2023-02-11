@@ -79,7 +79,7 @@ public class EnemyController : ICharacterController
                 var growPlantArea = closestPlant.GetComponent<PlantController>().getGrowArea();
 
                 //Attack on target range
-                if (distanceCounter(closestPlant.transform.position, this.transform.position) < Mathf.Sqrt(growPlantArea))
+                if (distanceCounter(closestPlant.transform.position, this.transform.position) < Mathf.Sqrt(growPlantArea) * 0.2f)
                 {
                     enemyAttack();
                     if (plantHealth.getPlantHP() <= 0 || closestPlant.gameObject == null)

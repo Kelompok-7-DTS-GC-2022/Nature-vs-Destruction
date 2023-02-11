@@ -38,7 +38,7 @@ public class PlantingController : MonoBehaviour
             var intZ = Mathf.RoundToInt(pos.z);
             PendingPlant.transform.position = new Vector3(intX, pos.y, intZ);
             //UpdateMaterials();
-            print(checker.canPlant);
+            // print(checker.canPlant);
             if (Input.GetMouseButtonDown(0) && checker.canPlant)
             {
                 PlacePlant();

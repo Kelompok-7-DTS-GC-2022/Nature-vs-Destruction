@@ -52,12 +52,10 @@ public class GameplayManager : MonoBehaviour
 
     public void AddPlantGrow(float _plantarea)
     {
-        print("ADd plant grow area" + _plantarea);
         PlantAreaGrow += _plantarea;
     }
     public void RemoveGrowPlant(float _plantarea)
     {
-        print("Decrease grow area" + _plantarea);
         PlantAreaGrow -= _plantarea;
     }
 

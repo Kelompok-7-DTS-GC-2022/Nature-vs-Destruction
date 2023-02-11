@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class GameplayFlow : MonoBehaviour
 {
@@ -15,15 +16,17 @@ public class GameplayFlow : MonoBehaviour
     }
     private void Update()
     {
-        print(PlayerPrefs.GetInt("BGM"));
+        // print(PlayerPrefs.GetInt("BGM"));
     }
     public void PauseGame()
     {
+        InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInDynamicUpdate;
         Time.timeScale = 0;
         AudioManager.instance.PlayClick();
     }
     public void ContinueGame()
     {
+        InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInFixedUpdate;
         Time.timeScale = 1;
         AudioManager.instance.PlayClick();
     }

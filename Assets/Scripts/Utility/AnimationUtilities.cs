@@ -9,7 +9,7 @@ public class AnimationUtilities
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName(animationName) && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > animator.GetCurrentAnimatorStateInfo(0).length)
         {
-            Debug.Log("Yieeellllddd");
+            // Debug.Log("Yieeellllddd");
             isDone = true;
         }
         yield return new WaitUntil(() => isDone == true);

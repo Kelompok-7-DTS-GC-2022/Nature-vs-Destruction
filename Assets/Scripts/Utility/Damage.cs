@@ -9,7 +9,6 @@ public class Damage : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
         if ((layer.value & (1 << other.transform.gameObject.layer)) > 0)
         {
             other?.gameObject.GetComponent<ICharacterController>().takeTheDamage(damagePoint);

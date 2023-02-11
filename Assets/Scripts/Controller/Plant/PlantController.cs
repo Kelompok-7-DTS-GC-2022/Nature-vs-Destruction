@@ -27,7 +27,6 @@ public class PlantController : ICharacterController
     }
     void Start()
     {
-        // GetComponent<MeshRenderer>().material.SetColor("_BaseColor", Color.red);
         checkPlantPlacement = GetComponent<CheckPlantPlacement>();
         animator = GetComponentInChildren<Animator>();
         _maxHealthPlant = plantSO.MaxHPPlant;
@@ -97,19 +96,21 @@ public class PlantController : ICharacterController
         {
             if (isPlanted)
             {
-                var enemyOverlapCheck = Physics.OverlapSphere(transform.position, 3, layerMask);
+                var enemyOverlapCheck = Physics.OverlapSphere(transform.position, 1.3f, layerMask);
                 if (enemyOverlapCheck.Length > 0)
                 {
                     if (attackArea != null)
                     {
+                        // animator.SetBool("noEnemy", true);
                         attackArea.GetComponent<Damage>().damagePoint = damage;
                         animator.Play("Attack");
                     }
+                    // else animator.SetBool("noEnemy", true);
                 }
-                // else
-                // {
-                //     animator.Play("Idle");
-                // }
+                else
+                {
+                    animator.Play("Idle");
+                }
             }
         }
     }

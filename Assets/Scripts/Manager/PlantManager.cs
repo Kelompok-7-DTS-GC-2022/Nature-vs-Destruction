@@ -26,7 +26,7 @@ public class PlantManager : MonoBehaviour
     }
     private void Start()
     {
-        SpawnPlantInitialData();
+        // SpawnPlantInitialData();
     }
 
 
@@ -36,8 +36,12 @@ public class PlantManager : MonoBehaviour
         {
             var plantData = Instantiate(plantss, plantss.transform.position, plantss.transform.rotation);
             plantData.transform.parent = transform;
+            var plantInitConf = plantData.GetComponent<PlantController>();
+            plantInitConf.isPlanted = true;
+
+            plantInitConf.enabled = true;
             plants.Add(plantData);
-            GameplayManager.Instance.AddPlantGrow(plantData.GetComponent<PlantController>().getGrowArea());
+            GameplayManager.Instance.AddPlantGrow(plantInitConf.getGrowArea());
         });
     }
 

@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 988310744076199849}
   m_Layer: 7
   m_Name: Bulldozer_v6.1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

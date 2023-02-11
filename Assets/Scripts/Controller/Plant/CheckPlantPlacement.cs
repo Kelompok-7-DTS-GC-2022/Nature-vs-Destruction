@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Cache;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UIElements;
 
@@ -15,16 +16,35 @@ public class CheckPlantPlacement : MonoBehaviour
     public LayerMask layer;
     private Bounds boxSize;
     private Vector3 boxPos;
+    public GameObject tanah;
 
+    void tanahRed()
+    {
+        if (tanah.GetComponent<MeshRenderer>() != null)
+        {
+            tanah.GetComponent<MeshRenderer>().material.SetColor("_BaseColor", Color.red);
+        }
+        else tanah.GetComponent<SkinnedMeshRenderer>().material.SetColor("_BaseColor", Color.red);
+    }
+    void tanahNormal()
+    {
+        if (tanah.GetComponent<MeshRenderer>() != null)
+        {
+            tanah.GetComponent<MeshRenderer>().material.SetColor("_BaseColor", Color.white);
+        }
+        else tanah.GetComponent<SkinnedMeshRenderer>().material.SetColor("_BaseColor", Color.white);
+    }
     void checkIfTheresAnyPlantOnPlanting()
     {
         if (Physics.CheckBox(boxPos, boxSize.size * .5f, transform.rotation, layer))
         {
             canPlant = false;
+            tanahRed();
         }
         else
         {
             canPlant = true;
+            tanahNormal();
         }
     }
     void checkIfTheresAnyPlantOnTerrain()
@@ -47,6 +67,7 @@ public class CheckPlantPlacement : MonoBehaviour
         boxPos = boxSize.center;
         if (planted)
         {
+            tanahNormal();
             checkIfTheresAnyPlantOnTerrain();
         }
         else
