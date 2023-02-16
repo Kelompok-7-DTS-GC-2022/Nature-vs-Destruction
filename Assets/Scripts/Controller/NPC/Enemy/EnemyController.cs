@@ -111,7 +111,8 @@ public class EnemyController : ICharacterController
 
         }
     }
-
+    public void playExplossionAUdio() => GameObject.FindObjectOfType<AudioManager>().PlayLedakan();
+    public void playWalkAudio() => GameObject.FindObjectOfType<AudioManager>().PlayEnemyMove();
     IEnumerator destroyAfterAnimation()
     {
         var animationToDestroy = new AnimationUtilities();

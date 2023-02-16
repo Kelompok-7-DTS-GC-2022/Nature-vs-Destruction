@@ -11,7 +11,8 @@ public class Damage : MonoBehaviour
     {
         if ((layer.value & (1 << other.transform.gameObject.layer)) > 0)
         {
-            other?.gameObject.GetComponent<ICharacterController>().takeTheDamage(damagePoint);
+            if (other.gameObject.GetComponent<ICharacterController>() != null)
+                other?.gameObject.GetComponent<ICharacterController>().takeTheDamage(damagePoint);
         }
     }
 }

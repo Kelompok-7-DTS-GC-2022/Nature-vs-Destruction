@@ -37,11 +37,11 @@ public class CameraController : MonoBehaviour
     //zoom
     private Vector3 zoomPosition;
     [SerializeField]
-    private float cameraZoomStep = 2;
+    private float cameraZoomStep = 1.5f;
     [SerializeField]
-    private float cameraMaxHeight = 100;
+    private float cameraMaxHeight = 50;
     [SerializeField]
-    private float cameraMinHeight = 10;
+    private float cameraMinHeight = 8;
     [SerializeField]
     private Vector3 targetPosition;
     [SerializeField]

@@ -13,7 +13,7 @@ public class CheckPlantPlacement : MonoBehaviour
     public bool planted = false;
     public bool canPlant;
     public bool hasNeighbour;
-    public LayerMask layer;
+    public LayerMask layer;//overlap layer
     private Bounds boxSize;
     private Vector3 boxPos;
     public GameObject tanah;
@@ -26,7 +26,7 @@ public class CheckPlantPlacement : MonoBehaviour
         }
         else tanah.GetComponent<SkinnedMeshRenderer>().material.SetColor("_BaseColor", Color.red);
     }
-    void tanahNormal()
+    public void tanahNormal()
     {
         if (tanah.GetComponent<MeshRenderer>() != null)
         {
@@ -49,7 +49,7 @@ public class CheckPlantPlacement : MonoBehaviour
     }
     void checkIfTheresAnyPlantOnTerrain()
     {
-        var plantOverlap = Physics.OverlapBox(boxPos, boxSize.size, transform.rotation, layer);
+        var plantOverlap = Physics.OverlapBox(boxPos, boxSize.size * .8f, transform.rotation, layer);
         var neighbour = plantOverlap.Where(plant => plant.transform != transform);
         if (neighbour.Count() > 0)
         {

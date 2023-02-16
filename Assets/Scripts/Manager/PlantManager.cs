@@ -26,7 +26,7 @@ public class PlantManager : MonoBehaviour
     }
     private void Start()
     {
-        // SpawnPlantInitialData();
+        SpawnPlantInitialData();
     }
 
 
@@ -35,13 +35,19 @@ public class PlantManager : MonoBehaviour
         initialPlantData.plants.ForEach(plantss =>
         {
             var plantData = Instantiate(plantss, plantss.transform.position, plantss.transform.rotation);
+            var plantInitController = plantData.GetComponent<PlantController>();
+            var checkIfNeighbour = plantData.GetComponent<CheckPlantPlacement>();
+            checkIfNeighbour.hasNeighbour = true;
+            checkIfNeighbour.canPlant = true;
+            checkIfNeighbour.planted = true;
+            checkIfNeighbour.tanahNormal();
             plantData.transform.parent = transform;
-            var plantInitConf = plantData.GetComponent<PlantController>();
-            plantInitConf.isPlanted = true;
-
-            plantInitConf.enabled = true;
+            plantData.gameObject.layer = LayerMask.NameToLayer("Plant");
+            plantInitController.enabled = true;
+            plantInitController.isPlanted = true;
+            plantData.GetComponent<Collider>().isTrigger = false;
             plants.Add(plantData);
-            GameplayManager.Instance.AddPlantGrow(plantInitConf.getGrowArea());
+            GameplayManager.Instance.AddPlantGrow(plantInitController.getGrowArea());
         });
     }
 
